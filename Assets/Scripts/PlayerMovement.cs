@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    public GachaBox gachaBox;
     public float acceleration;
     public float maxSpeed;
     public float maxBoostSpeed;
@@ -101,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
             isBonusDrift = false;
         }
 
-        Debug.Log(rb.velocity.magnitude);
+        // Debug.Log(rb.velocity.magnitude);
     }
 
     void FixedUpdate()
@@ -168,6 +168,12 @@ public class PlayerMovement : MonoBehaviour
             {
                 return 0.33f;
             }
+        }
+    }
+    private void OnCollisionEnter(Collision other){
+        if (other.gameObject.CompareTag("gachaBox"))
+        {
+            gachaBox.openBox();
         }
     }
 }
