@@ -507,8 +507,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 10
   maxSpeed: 15
-  slowTurnSpeed: 0.5
-  highTurnSpeed: 0.75
+  maxBoostSpeed: 20
+  minTurnSpeed: 0
+  maxTurnSpeed: 1
+  maxStamina: 100
+  currentStamina: 0
+  boostSpeed: 3
+  staminaDeplation: 15
+  staminaRefill: 2.5
+  driftTurnSpeed: 2
+  bonusDriftSpeed: 3
   rb: {fileID: 1191822041}
   cameraTransform: {fileID: 963194228}
 --- !u!65 &1191822040
