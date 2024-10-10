@@ -4,19 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float acceleration;
-    public float maxSpeed;
-    public float maxBoostSpeed;
-    public float minTurnSpeed;
-    public float maxTurnSpeed;
-    public float maxStamina;
-    public float currentStamina;
-    public float boostSpeed;
-    public float staminaDeplation;
-    public float staminaRefill;
-    public float driftTurnSpeed;
-    public float bonusDriftSpeed;
 
+    public JawiStats jawiStats;
     public Rigidbody rb;
     public Transform cameraTransform;
 
@@ -25,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private float driftInput;
     private bool boostInput;
     private float turnSpeed;
+    private float currentStamina;
     private int cartDirection;
     private bool isBoosting;
     private Vector3 initialCamera;
@@ -38,65 +28,87 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        currentStamina = maxStamina;
+        currentStamina = jawiStats.maxStamina;
         initialCamera = new Vector3(0f, 1.5f, -2f);
         targetCamera = new Vector3(0f, 1.6f, -2.5f);
-    }
+    }   
 
     void Update()
     {
-        turnInput = Input.GetAxis("Horizontal");
+        HandleInput();
+        HandleBoost();
+        HandleDrift();        
+    }
+
+    void FixedUpdate()
+    {
+
+        FixedMovement();
+        FixedRotation();
+    }
+
+    void HandleInput()
+    {
+        turnInput = Input.GetAxisRaw("Horizontal");
         moveInput = Input.GetAxisRaw("Vertical");
         driftInput = Input.GetAxisRaw("Jump");
-
+        boostInput = Input.GetKey(KeyCode.LeftShift);
         cartDirection = moveInput < 0 ? -1 : 1;
 
-        boostInput = Input.GetKey(KeyCode.LeftShift);
+    }
 
-        if(boostInput)
-        {   
-            if(currentStamina > 20)
+    void HandleBoost()
+    {
+        if (boostInput && moveInput > 0)
+        {
+            if (currentStamina > 20)
             {
                 isBoosting = true;
-            } 
+            }
 
-            if(currentStamina == 0)
+            if (currentStamina == 0)
             {
                 isBoosting = false;
             }
-        } else
+        }
+        else
         {
             isBoosting = false;
         }
 
-        if(isBoosting)
+        if (isBoosting)
         {
-            currentStamina -= Time.deltaTime * staminaDeplation;
+            currentStamina -= Time.deltaTime * jawiStats.staminaDeplation;
             cameraTransform.localPosition = targetCamera;
-        }else {
+        }
+        else
+        {
             cameraTransform.localPosition = initialCamera;
-            currentStamina += Time.deltaTime * staminaRefill;
+            currentStamina += Time.deltaTime * jawiStats.staminaRefill;
         }
 
-        currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+        currentStamina = Mathf.Clamp(currentStamina, 0, jawiStats.maxStamina);
+    }
 
-        if(!isDrifting && driftInput > 0 && rb.velocity.magnitude > 7.5)
+    void HandleDrift()
+    {
+        if (!isDrifting && driftInput > 0 && rb.velocity.magnitude > 7.5 && turnInput != 0 && moveInput > 0)
         {
             isDrifting = true;
             driftDirection = (int)Mathf.Ceil(turnInput);
             driftTime = 0;
         }
 
-        if(isDrifting)
+        if (isDrifting)
         {
             driftTime += Time.deltaTime;
         }
 
-        if(isDrifting && (driftInput <= 0 || rb.velocity.magnitude < 7.5))
+        if (isDrifting && (driftInput <= 0 || rb.velocity.magnitude < 7.5))
         {
             isDrifting = false;
 
-            if(driftTime > 2)
+            if (driftTime > 2)
             {
                 bonusDriftTime = 0;
                 isBonusDrift = true;
@@ -106,49 +118,56 @@ public class PlayerMovement : MonoBehaviour
         if (isBonusDrift && bonusDriftTime < 3)
         {
             bonusDriftTime += Time.deltaTime;
-        } else
+        }
+        else
         {
             isBonusDrift = false;
         }
+
+        Debug.Log(isDrifting);
     }
 
-    void FixedUpdate()
+    void FixedMovement()
     {
-
-        if(isBonusDrift)
+        if (isBonusDrift)
         {
-            if(rb.velocity.magnitude < maxBoostSpeed)
+            if (rb.velocity.magnitude < jawiStats.maxBoostSpeed)
             {
-                rb.AddForce(transform.forward * moveInput * bonusDriftSpeed * acceleration);
+                rb.AddForce(transform.forward * moveInput * jawiStats.bonusDriftSpeed * jawiStats.acceleration);
             }
         }
 
-        if(isBoosting)
-        {   
-            if (rb.velocity.magnitude < maxBoostSpeed)
-            {
-                rb.AddForce(transform.forward * moveInput * acceleration * boostSpeed);
-            }
-        } else
+        if (isBoosting)
         {
-            if (rb.velocity.magnitude < maxSpeed)
+            if (rb.velocity.magnitude < jawiStats.maxBoostSpeed)
             {
-                rb.AddForce(transform.forward * moveInput * acceleration);
+                rb.AddForce(transform.forward * moveInput * jawiStats.acceleration * jawiStats.boostSpeed);
             }
         }
-        
-        float turnSpeed = Mathf.Lerp(minTurnSpeed, maxTurnSpeed, rb.velocity.magnitude / maxSpeed);
+        else
+        {
+            if (rb.velocity.magnitude < jawiStats.maxSpeed)
+            {
+                rb.AddForce(transform.forward * moveInput * jawiStats.acceleration);
+            }
+        }
+    }
+
+    void FixedRotation()
+    {
+        float turnSpeed = Mathf.Lerp(jawiStats.minTurnSpeed, jawiStats.maxTurnSpeed, rb.velocity.magnitude / jawiStats.maxSpeed);
 
         if (isDrifting)
         {
             scaleDriftInput = GetScaleDrift();
-            rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0f, turnSpeed * driftDirection * driftTurnSpeed * scaleDriftInput, 0f)));
-        }else
+            rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0f, turnSpeed * driftDirection * jawiStats.driftTurnSpeed * scaleDriftInput, 0f)));
+        }
+        else
         {
             rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0f, turnSpeed * cartDirection * turnInput, 0f)));
         }
-
     }
+
 
     float GetScaleDrift()
     {
@@ -193,14 +212,18 @@ public class PlayerMovement : MonoBehaviour
                 Debug.LogError("GachaBox component not found on the collided object.");
             }
         }
-    }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("Mud"))
+        if (other.gameObject.CompareTag("Mud"))
         {
-            Debug.Log("kena");
+            rb.drag = 1f;
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Mud"))
+        {
+            rb.drag = 0.2f;
+        }
+    }
 }
