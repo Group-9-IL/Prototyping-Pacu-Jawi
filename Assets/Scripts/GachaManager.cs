@@ -5,6 +5,13 @@ using UnityEngine;
 public class GachaManager : MonoBehaviour
 {
     public List<GachaItem> gachaItems;
+    public GameObject gachaBox;
+
+    private void Start()
+    {
+        //Instantiate(gachaBox, new Vector3(3f, 1f, 5f), Quaternion.identity);
+        //ni command untuk spawner nya nanti buat coba doang
+    }
 
     public GachaItem RollGacha()
     {
@@ -14,7 +21,7 @@ public class GachaManager : MonoBehaviour
         {
             totalWeight += item.dropRate;
         }
-    
+
         float randomValue = Random.Range(0f,totalWeight);
         float cumulativeWeight = 0f;
         

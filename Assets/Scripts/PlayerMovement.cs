@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public GachaBox gachaBox;
     public float acceleration;
     public float maxSpeed;
     public float maxBoostSpeed;
@@ -24,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private float moveInput;
     private float turnInput;
     private float driftInput;
+    private bool boostInput;
     private float turnSpeed;
     private int cartDirection;
     private bool isBoosting;
@@ -45,27 +45,37 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        turnInput = Input.GetAxisRaw("Horizontal");
+        turnInput = Input.GetAxis("Horizontal");
         moveInput = Input.GetAxisRaw("Vertical");
         driftInput = Input.GetAxisRaw("Jump");
 
         cartDirection = moveInput < 0 ? -1 : 1;
 
-        isBoosting = Input.GetKey(KeyCode.LeftShift) && currentStamina >= 20;
+        boostInput = Input.GetKey(KeyCode.LeftShift);
 
-        if(isBoosting && currentStamina > 0)
+        if(boostInput)
+        {   
+            if(currentStamina > 20)
+            {
+                isBoosting = true;
+            } 
+
+            if(currentStamina == 0)
+            {
+                isBoosting = false;
+            }
+        } else
+        {
+            isBoosting = false;
+        }
+
+        if(isBoosting)
         {
             currentStamina -= Time.deltaTime * staminaDeplation;
             cameraTransform.localPosition = targetCamera;
-        }else
-        {
+        }else {
             cameraTransform.localPosition = initialCamera;
-        }
-
-        if(!isBoosting && currentStamina < maxStamina && !Input.GetKey(KeyCode.LeftShift))
-        {
             currentStamina += Time.deltaTime * staminaRefill;
-
         }
 
         currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
@@ -100,8 +110,6 @@ public class PlayerMovement : MonoBehaviour
         {
             isBonusDrift = false;
         }
-
-        // Debug.Log(rb.velocity.magnitude);
     }
 
     void FixedUpdate()
@@ -170,10 +178,29 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-    private void OnCollisionEnter(Collision other){
+    private void OnTriggerEnter(Collider other)
+    {
         if (other.gameObject.CompareTag("gachaBox"))
         {
-            gachaBox.openBox();
+            GachaBox gachaBoxInstance = other.gameObject.GetComponent<GachaBox>();
+
+            if (gachaBoxInstance != null)
+            {
+                gachaBoxInstance.OpenBox();
+            }
+            else
+            {
+                Debug.LogError("GachaBox component not found on the collided object.");
+            }
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Mud"))
+        {
+            Debug.Log("kena");
+        }
+    }
+
 }

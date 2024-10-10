@@ -4,16 +4,31 @@ using UnityEngine;
 
 public class GachaBox : MonoBehaviour
 {
-    public GachaManager gachaManager;
-    // Start is called before the first frame update
-    public void openBox()
+    private GachaManager gachaManager;
+
+    private void Start()
     {
+        gachaManager = FindObjectOfType<GachaManager>();
+    }
+
+    public void OpenBox()
+    {
+
         GachaItem obtainedItem = gachaManager.RollGacha();
 
         if (obtainedItem != null)
         {
             Debug.Log("You Got :"+ obtainedItem.itemName);
-        }
 
+        }
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
