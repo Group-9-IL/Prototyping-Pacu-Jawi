@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c6a11efd5c1fa94db4a7a2d985b3201, type: 3}
   m_Name: Jawi 1
   m_EditorClassIdentifier: 
-  acceleration: 10
-  maxSpeed: 15
-  maxBoostSpeed: 17.5
+  acceleration: 12.5
+  maxSpeed: 17.5
+  maxBoostSpeed: 20
   minTurnSpeed: 0
   maxTurnSpeed: 1.25
   maxStamina: 100

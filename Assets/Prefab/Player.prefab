@@ -145,7 +145,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &2633349675115592057
 BoxCollider:
@@ -180,18 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cb59a2812cab284fa1a8f5cd1e7bce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 12
-  maxSpeed: 15
-  maxBoostSpeed: 20
-  minTurnSpeed: 0
-  maxTurnSpeed: 1.5
-  maxStamina: 100
-  currentStamina: 0
-  boostSpeed: 1.25
-  staminaDeplation: 15
-  staminaRefill: 2.5
-  driftTurnSpeed: 1.75
-  bonusDriftSpeed: 1.25
+  jawiStats: {fileID: 11400000, guid: e9b69a58ca6103645b116ea40ad18035, type: 2}
   rb: {fileID: 2449609183878685179}
   cameraTransform: {fileID: 4728940520324108835}
 --- !u!1 &8614467258066639008
@@ -346,7 +335,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295

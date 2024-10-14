@@ -123,8 +123,6 @@ public class PlayerMovement : MonoBehaviour
         {
             isBonusDrift = false;
         }
-
-        Debug.Log(isDrifting);
     }
 
     void FixedMovement()
