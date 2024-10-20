@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GachaBox : MonoBehaviour
 {
     private GachaManager gachaManager;
-
+    public Image PlayerItem;
     private void Start()
     {
         gachaManager = FindObjectOfType<GachaManager>();
@@ -19,7 +20,7 @@ public class GachaBox : MonoBehaviour
         if (obtainedItem != null)
         {
             Debug.Log("You Got :"+ obtainedItem.itemName);
-
+            PlayerItem.sprite = obtainedItem.itemIcon;
         }
         
     }

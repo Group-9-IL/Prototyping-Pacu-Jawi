@@ -7,7 +7,11 @@ public class PlayerMovement : MonoBehaviour
 
     public JawiStats jawiStats;
     public Rigidbody rb;
+    public GameObject item;
     public Transform cameraTransform;
+    private Animator dropItem;
+    public GameObject itemUI;
+    // public GameObject getItem;
 
     private float moveInput;
     private float turnInput;
@@ -25,19 +29,23 @@ public class PlayerMovement : MonoBehaviour
     private float driftTime;
     private float bonusDriftTime;
     private bool isBonusDrift;
+    private bool hasItem = false;
 
     void Start()
     {
         currentStamina = jawiStats.maxStamina;
         initialCamera = new Vector3(0f, 1.5f, -2f);
         targetCamera = new Vector3(0f, 1.6f, -2.5f);
+        dropItem = item.GetComponent<Animator>();
+        // getItem = item.GetComponent<Animator>();
     }   
 
     void Update()
     {
         HandleInput();
         HandleBoost();
-        HandleDrift();        
+        HandleDrift();
+        UsingItem();        
     }
 
     void FixedUpdate()
@@ -201,9 +209,12 @@ public class PlayerMovement : MonoBehaviour
         {
             GachaBox gachaBoxInstance = other.gameObject.GetComponent<GachaBox>();
 
-            if (gachaBoxInstance != null)
+            if (gachaBoxInstance != null && !hasItem )
             {
                 gachaBoxInstance.OpenBox();
+                hasItem = true;
+                dropItem.SetBool("hasItemAnim",true);
+                // itemUI.SetActive(true);
             }
             else
             {
@@ -222,6 +233,13 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Mud"))
         {
             rb.drag = 0.2f;
+        }
+    }
+    private void UsingItem(){
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // buat fungsi agar item bisa digunakan
+            hasItem = false;
         }
     }
 }
