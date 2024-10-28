@@ -7,59 +7,104 @@ public class PlayerMovement : MonoBehaviour
 
     public JawiStats jawiStats;
     public Rigidbody rb;
-    public Transform cameraTransform;
+    public Camera mainCamera;
+    public WheelCollider frontLeftWheel;
+    public WheelCollider frontRightWheel;
+    public WheelCollider rearLeftWheel;
+    public WheelCollider rearRightWheel;
 
-    private float moveInput;
-    private float turnInput;
+    private float accelarationInput;
+    private float steeringInput;
     private float driftInput;
     private bool boostInput;
-    private float turnSpeed;
-    private float currentStamina;
-    private int cartDirection;
     private bool isBoosting;
-    private Vector3 initialCamera;
-    private Vector3 targetCamera;
     private bool isDrifting;
-    private int driftDirection;
-    private float scaleDriftInput;
-    private float driftTime;
     private float bonusDriftTime;
     private bool isBonusDrift;
+    private float currentSteeringAngle;
+    private float currentStamina;
+    private int driftDirection;
+    private float driftTime;
+    private Vector3 initialCamera;
+    private Vector3 targetCamera;
 
     void Start()
     {
         currentStamina = jawiStats.maxStamina;
-        initialCamera = new Vector3(0f, 1.5f, -2f);
-        targetCamera = new Vector3(0f, 1.6f, -2.5f);
+        initialCamera = new Vector3(0, 5f, -5f);
+        targetCamera = new Vector3(0, 4.5f, -6f);
     }   
 
     void Update()
     {
-        HandleInput();
-        HandleBoost();
-        HandleDrift();        
-    }
-
-    void FixedUpdate()
-    {
-
-        FixedMovement();
-        FixedRotation();
-    }
-
-    void HandleInput()
-    {
-        turnInput = Input.GetAxisRaw("Horizontal");
-        moveInput = Input.GetAxisRaw("Vertical");
-        driftInput = Input.GetAxisRaw("Jump");
+        accelarationInput = Input.GetAxisRaw("Vertical");
+        steeringInput = Input.GetAxisRaw("Horizontal");
         boostInput = Input.GetKey(KeyCode.LeftShift);
-        cartDirection = moveInput < 0 ? -1 : 1;
+        driftInput = Input.GetAxisRaw("Jump");
 
+        HandleCamera();
+        HandleBoost();
+        HandleDrift();
     }
 
-    void HandleBoost()
+    void FixedUpdate()  
     {
-        if (boostInput && moveInput > 0)
+        HandleAcceleration();
+        HandleSteering();
+    }
+
+    private void HandleAcceleration()
+    {
+
+        if (accelarationInput != 0f)
+        {
+
+            if (rb.velocity.magnitude < 1f)
+            {
+                rb.AddForce(transform.forward * accelarationInput * jawiStats.initialAccelaration, ForceMode.Acceleration);
+            }
+
+            if(isBonusDrift)
+            {
+                if(rb.velocity.magnitude < jawiStats.maxBoostSpeed)
+                {
+                    rb.AddForce(transform.forward * accelarationInput * jawiStats.boostAccelarationRate, ForceMode.Acceleration);
+                }
+            }else if(isBoosting)
+            {
+                if (rb.velocity.magnitude < jawiStats.maxBoostSpeed)
+                {
+                    rb.AddForce(transform.forward * accelarationInput * jawiStats.boostAccelarationRate, ForceMode.Acceleration);
+                }
+            }else
+            {
+                if (rb.velocity.magnitude < jawiStats.maxSpeed)
+                {
+                    rb.AddForce(transform.forward * accelarationInput * jawiStats.accelarationRate, ForceMode.Acceleration);
+                }
+            }
+
+
+        }
+
+        rb.AddForce(-transform.up * jawiStats.downForce * rb.velocity.magnitude);
+        rb.angularVelocity = Vector3.ClampMagnitude(rb.angularVelocity, 3f);
+    }
+        
+    private void HandleSteering()
+    {
+
+        currentSteeringAngle = isDrifting
+            ? jawiStats.driftSteeringAngle * driftDirection * GetScaleDrift()
+            : Mathf.Lerp(jawiStats.normalSteeringAngle, jawiStats.highSteeringAngle, rb.velocity.magnitude / jawiStats.maxSpeed) * steeringInput;
+
+        frontLeftWheel.steerAngle = currentSteeringAngle;
+        frontRightWheel.steerAngle = currentSteeringAngle;
+    }       
+
+    private void HandleBoost()
+    {
+        if (boostInput && accelarationInput > 0)
         {
             if (currentStamina > 20)
             {
@@ -78,24 +123,22 @@ public class PlayerMovement : MonoBehaviour
 
         if (isBoosting)
         {
-            currentStamina -= Time.deltaTime * jawiStats.staminaDeplation;
-            cameraTransform.localPosition = targetCamera;
+            currentStamina -= Time.deltaTime * jawiStats.staminaDepletion;
         }
         else
         {
-            cameraTransform.localPosition = initialCamera;
             currentStamina += Time.deltaTime * jawiStats.staminaRefill;
         }
 
         currentStamina = Mathf.Clamp(currentStamina, 0, jawiStats.maxStamina);
     }
 
-    void HandleDrift()
+    private void HandleDrift()
     {
-        if (!isDrifting && driftInput > 0 && rb.velocity.magnitude > 7.5 && turnInput != 0 && moveInput > 0)
+        if (!isDrifting && driftInput > 0 && rb.velocity.magnitude > 7.5 && steeringInput != 0 && accelarationInput > 0)
         {
             isDrifting = true;
-            driftDirection = (int)Mathf.Ceil(turnInput);
+            driftDirection = (int)Mathf.Ceil(steeringInput);
             driftTime = 0;
         }
 
@@ -125,90 +168,60 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void FixedMovement()
+    private void HandleCamera()
     {
-        if (isBonusDrift)
+        if(isBoosting || isBonusDrift)
         {
-            if (rb.velocity.magnitude < jawiStats.maxBoostSpeed)
-            {
-                rb.AddForce(transform.forward * moveInput * jawiStats.bonusDriftSpeed * jawiStats.acceleration);
-            }
-        }
-
-        if (isBoosting)
-        {
-            if (rb.velocity.magnitude < jawiStats.maxBoostSpeed)
-            {
-                rb.AddForce(transform.forward * moveInput * jawiStats.acceleration * jawiStats.boostSpeed);
-            }
+            mainCamera.transform.localPosition = targetCamera;
         }
         else
         {
-            if (rb.velocity.magnitude < jawiStats.maxSpeed)
-            {
-                rb.AddForce(transform.forward * moveInput * jawiStats.acceleration);
-            }
+            mainCamera.transform.localPosition = initialCamera;
         }
     }
 
-    void FixedRotation()
-    {
-        float turnSpeed = Mathf.Lerp(jawiStats.minTurnSpeed, jawiStats.maxTurnSpeed, rb.velocity.magnitude / jawiStats.maxSpeed);
-
-        if (isDrifting)
-        {
-            scaleDriftInput = GetScaleDrift();
-            rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0f, turnSpeed * driftDirection * jawiStats.driftTurnSpeed * scaleDriftInput, 0f)));
-        }
-        else
-        {
-            rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0f, turnSpeed * cartDirection * turnInput, 0f)));
-        }
-    }
-
-
-    float GetScaleDrift()
+    private float GetScaleDrift()
     {
         if (driftDirection < 0)
         {
-            if (turnInput < 0)
+            if (steeringInput < 0)
             {
                 return 1f;
-            } else if (turnInput == 0)
-            {
-                return 0.66f;
-            } else
-            {
-                return 0.33f;
             }
-        } else
+            else if (steeringInput == 0)
+            {
+                return 0.9f;
+            }
+            else
+            {
+                return 0.8f;
+            }
+        }
+        else
         {
-            if (turnInput > 0)
+            if (steeringInput > 0)
             {
                 return 1f;
-            } else if (turnInput == 0)
+            }
+            else if (steeringInput == 0)
             {
-                return 0.66f;
-            } else
+                return 0.9f;
+            }
+            else
             {
-                return 0.33f;
+                return 0.8f;
             }
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("gachaBox"))
         {
             GachaBox gachaBoxInstance = other.gameObject.GetComponent<GachaBox>();
 
-            if (gachaBoxInstance != null)
-            {
-                gachaBoxInstance.OpenBox();
-            }
-            else
-            {
-                Debug.LogError("GachaBox component not found on the collided object.");
-            }
+            gachaBoxInstance.OpenBox();
+            
         }
 
         if (other.gameObject.CompareTag("Mud"))

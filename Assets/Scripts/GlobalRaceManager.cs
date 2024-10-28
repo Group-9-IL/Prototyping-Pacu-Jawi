@@ -5,25 +5,39 @@ using UnityEngine.TextCore.Text;
 
 public class GlobalRaceManager : MonoBehaviour
 {
-    public List<PlayerRaceManager> listPlayer = new List<PlayerRaceManager>();
-    public float raceTimer = 300f;
-    public int lapTotal = 3;
-    
+
+    public float raceTimer;
+    public int lapTotal;    
+    public int totalPlayer;
+    public List<Vector3> startPositon;
+
+    private List<PlayerRaceManager> listPlayerManager = new List<PlayerRaceManager>();
+    private bool allPlayerFinished = false;
+
     void Start()
     {
+
+        for(int i = 0;i < totalPlayer; i++)
+        {
+
+        }
+
+
         foreach (PlayerRaceManager player in FindObjectsOfType<PlayerRaceManager>())
         {
-            listPlayer.Add(player);
+            listPlayerManager.Add(player);
             player.setLapTotal(lapTotal);
         }
+
+
     }
 
     void Update()
     {
 
-        bool allPlayerFinished = true;
+        allPlayerFinished = true;
 
-        foreach(PlayerRaceManager player in listPlayer)
+        foreach(PlayerRaceManager player in listPlayerManager)
         {
             if (!player.getRaceFinished())
             {

@@ -6,7 +6,7 @@ using UnityEngine.PlayerLoop;
 public class PlayerRaceManager : MonoBehaviour
 {
 
-    private int lapTotal = 3;
+    private int lapTotal;
     private int currentCheckPoint = 0;
     private int currentLap = 0;
     private bool raceFinished = false;
