@@ -10,6 +10,7 @@ TagManager:
   - Checkpoint_2
   - Checkpoint_3
   - Line
+  - PlayerItem
   layers:
   - Default
   - TransparentFX
