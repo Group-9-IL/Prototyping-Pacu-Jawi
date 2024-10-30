@@ -10,6 +10,7 @@ public class GlobalRaceManager : MonoBehaviour
     public int lapTotal;    
     public int totalPlayer;
     public List<Vector3> startPositon;
+    public List<Quaternion> startRotation;
 
     private List<PlayerRaceManager> listPlayerManager = new List<PlayerRaceManager>();
     private bool allPlayerFinished = false;

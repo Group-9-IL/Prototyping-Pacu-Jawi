@@ -792,6 +792,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2206230022229587950}
   - component: {fileID: 5461770601948993179}
+  - component: {fileID: -6957459179369860410}
+  - component: {fileID: 8841366726140757669}
   m_Layer: 0
   m_Name: Jawi 1
   m_TagString: Player
@@ -845,6 +847,37 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-6957459179369860410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4709803866135330879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10a030830b26bf4d8263ab96dc45a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8841366726140757669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4709803866135330879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb59a2812cab284fa1a8f5cd1e7bce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jawiStats: {fileID: 11400000, guid: 718357e35e4bb1a409836fd0e88406bf, type: 2}
+  rb: {fileID: 5461770601948993179}
+  mainCamera: {fileID: 8143630606984160138}
+  frontLeftWheel: {fileID: 1407280051805417532}
+  frontRightWheel: {fileID: 5057512286205569752}
+  rearLeftWheel: {fileID: 6602525371051540654}
+  rearRightWheel: {fileID: 4178421824684103262}
 --- !u!1 &5112916800888290539
 GameObject:
   m_ObjectHideFlags: 0
