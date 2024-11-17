@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5587133071016727402}
   - component: {fileID: 3009278610440017322}
+  - component: {fileID: 87248377004727467}
   m_Layer: 0
   m_Name: Game Race Manager
   m_TagString: Untagged
@@ -42,5 +43,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61ddfcc4a321d9f48aad458b6bf08944, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lapTotal: 0
+  totalPlayer: 0
+  startPositon: []
+  startRotation: []
+  carPrefabs: []
+--- !u!114 &87248377004727467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6826807156794314873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab899dcea94f13f4eb0629b947085d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

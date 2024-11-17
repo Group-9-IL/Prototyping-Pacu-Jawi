@@ -5,12 +5,22 @@ using UnityEngine;
 public class GachaManager : MonoBehaviour
 {
     public List<GachaItem> gachaItems;
+    public List<Vector3> spawnPosition;
     public GameObject gachaBox;
+
+    private int sumSpawned = 0;
 
     private void Start()
     {
-        //Instantiate(gachaBox, new Vector3(3f, 1f, 5f), Quaternion.identity);
-        //ni command untuk spawner nya nanti buat coba doang
+        SpawnGachaBox();
+    }
+
+    private void Update()
+    {
+        if(TimerManager.Instance.getCurrentTime() > sumSpawned * 45)
+        {
+            SpawnGachaBox();
+        }
     }
 
     public GachaItem RollGacha()
@@ -34,5 +44,21 @@ public class GachaManager : MonoBehaviour
             }
         }
         return null;
+    }
+
+    private void SpawnGachaBox()
+    {
+        GachaBox[] existingGachaBoxes = FindObjectsOfType<GachaBox>();
+
+        foreach (GachaBox box in existingGachaBoxes)
+        {
+            Destroy(box.gameObject);
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            Instantiate(gachaBox, spawnPosition[i], Quaternion.identity);
+        }
+        sumSpawned++;
     }
 }

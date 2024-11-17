@@ -45029,12 +45029,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61ddfcc4a321d9f48aad458b6bf08944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raceTimer: 300
   lapTotal: 3
   totalPlayer: 2
   startPositon:
-  - {x: 3.31, y: 10.34, z: 144}
+  - {x: 3.31, y: 9.8, z: 160}
   - {x: 6.78, y: 10.34, z: 164.33}
+  startRotation:
+  - {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
+  - {x: 0, y: 0.70710677, z: 0, w: -0.70710677}
+  carPrefabs:
+  - {fileID: 4709803866135330879, guid: 1dcb5cb5e84a3b543a27339668cc7c56, type: 3}
+  - {fileID: 4709803866135330879, guid: f233a65d99f73c048a3fd0c235ac371d, type: 3}
 --- !u!33 &3010172806415466300
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -52255,6 +52260,23 @@ GameObject:
   - component: {fileID: 1349292847}
   m_Layer: 0
   m_Name: Cube.073
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &3566872627692819563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5985065659277480694}
+  - component: {fileID: 5187658673369945857}
+  m_Layer: 0
+  m_Name: Gacha Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73163,6 +73185,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5187658673369945857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3566872627692819563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a51783aeb65fcdb458ea8a723157f2a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gachaItems:
+  - {fileID: 11400000, guid: 962b3b9b226e65948aa6eed52d5d4ddd, type: 2}
+  - {fileID: 11400000, guid: 2265b34823967ee4dbd9fb6ab2be91ed, type: 2}
+  - {fileID: 11400000, guid: 5e546a153652a8a4eb6d039e25c20ac3, type: 2}
+  - {fileID: 11400000, guid: 4fe1a1f3da7314c44a1ac83b3c36153f, type: 2}
+  spawnPosition:
+  - {x: -45.5, y: 11, z: -63}
+  - {x: -45.5, y: 11, z: -66}
+  - {x: -45.5, y: 11, z: -69}
+  - {x: -45.5, y: 11, z: -72}
+  gachaBox: {fileID: 149896039668710360, guid: 9f36a37e97e063942925fe21e7d45ed6, type: 3}
 --- !u!33 &5189396132313960267
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -84679,6 +84724,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!4 &5985065659277480694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3566872627692819563}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.7226617, y: 1.1748103, z: 1.4493179}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5985820117493647694
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -96898,6 +96958,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5587133070654990416}
   - component: {fileID: 3009278610524941968}
+  - component: {fileID: 6826807156967320388}
   m_Layer: 0
   m_Name: Game Race Manager
   m_TagString: Untagged
@@ -96905,6 +96966,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6826807156967320388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6826807156967320387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab899dcea94f13f4eb0629b947085d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6827591369275651600
 GameObject:
   m_ObjectHideFlags: 0
@@ -129307,3 +129380,4 @@ SceneRoots:
   - {fileID: 9182944592845936950}
   - {fileID: 5093900067608005983}
   - {fileID: 5587133070654990416}
+  - {fileID: 5985065659277480694}

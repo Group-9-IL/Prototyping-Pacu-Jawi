@@ -6,11 +6,11 @@ using UnityEngine.TextCore.Text;
 public class GlobalRaceManager : MonoBehaviour
 {
 
-    public float raceTimer;
     public int lapTotal;    
     public int totalPlayer;
     public List<Vector3> startPositon;
     public List<Quaternion> startRotation;
+    public List<GameObject> carPrefabs;
 
     private List<PlayerRaceManager> listPlayerManager = new List<PlayerRaceManager>();
     private bool allPlayerFinished = false;
@@ -20,7 +20,7 @@ public class GlobalRaceManager : MonoBehaviour
 
         for(int i = 0;i < totalPlayer; i++)
         {
-
+            Instantiate(carPrefabs[i], startPositon[i], startRotation[i]);
         }
 
 
@@ -53,11 +53,10 @@ public class GlobalRaceManager : MonoBehaviour
         }
 
 
-        raceTimer -= Time.deltaTime;
-        if(raceTimer <= 0)
+        if(TimerManager.Instance.getCurrentTime() > 300)
         {
             ForceStopRace();
-        }   
+        }
     }
 
     void ForceStopRace()

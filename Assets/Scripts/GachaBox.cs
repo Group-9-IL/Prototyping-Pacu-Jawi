@@ -10,34 +10,28 @@ public class GachaBox : MonoBehaviour
     private void Start()
     {
         gachaManager = FindObjectOfType<GachaManager>();
-        GameObject playerItemObject = GameObject.Find("PlayerItem");
-        if (playerItem == null)
-        {
-            playerItem = playerItemObject.GetComponent<Image>();
-        }else
-        {
-            Debug.LogError("PlayerItem tidak ditemukan");
-        }
+        //GameObject playerItemObject = GameObject.Find("PlayerItem");
+        //if (playerItem == null)
+        //{
+        //    playerItem = playerItemObject.GetComponent<Image>();
+        //}else
+        //{
+        //    Debug.LogError("PlayerItem tidak ditemukan");
+        //}
     }
 
-    public void OpenBox()
+    public GachaItem OpenBox()
     {
-
+        Destroy(gameObject);
         GachaItem obtainedItem = gachaManager.RollGacha();
+    
+        //if (obtainedItem != null)
+        //{
+        //    Debug.Log("You Got :"+ obtainedItem.itemName);
+        //    playerItem.sprite = obtainedItem.itemIcon;
+        //}
 
-        if (obtainedItem != null)
-        {
-            Debug.Log("You Got :"+ obtainedItem.itemName);
-            playerItem.sprite = obtainedItem.itemIcon;
-        }
-        
-    }
+        return obtainedItem;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("Player"))
-        {
-            Destroy(gameObject);
-        }
     }
 }
