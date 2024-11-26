@@ -7,7 +7,9 @@ public class PlayerItem : MonoBehaviour
 
     private GachaItem currentItem;
     private PlayerMovement player;
+    private Animator dropItem;
     private float delayItem = 0f;
+    private bool hasItem = false;
 
     private void Start()
     {
@@ -55,7 +57,10 @@ public class PlayerItem : MonoBehaviour
             delayItem = 5f;
             GachaBox gachaBoxInstance = other.gameObject.GetComponent<GachaBox>();
             currentItem = gachaBoxInstance.OpenBox();
+            dropItem.SetBool("hasItemAnim",true);
+            hasItem=true;
             Debug.Log(currentItem.itemName);
+
         }
     }
 }

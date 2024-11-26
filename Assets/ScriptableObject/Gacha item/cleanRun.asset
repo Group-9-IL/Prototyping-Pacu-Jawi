@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: cleanRun
   m_EditorClassIdentifier: 
   itemName: Clean Run
-  itemIcon: {fileID: 21300000, guid: 7affdad6169d7ab408779f260fd1a54b, type: 3}
+  itemIcon: {fileID: 21300000, guid: 6c0ba9373fa7227418a2f8f2fec27c01, type: 3}
   dropRate: 0.25

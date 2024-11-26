@@ -290,9 +290,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 507955848438654559, guid: 21c18b5b4dab3a44a8912fb8ca61cb7c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 292
+      objectReference: {fileID: 0}
+    - target: {fileID: 686361602779495317, guid: 21c18b5b4dab3a44a8912fb8ca61cb7c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1918505781133632634, guid: 21c18b5b4dab3a44a8912fb8ca61cb7c, type: 3}
       propertyPath: m_Name
       value: MainMenuCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713899685325189249, guid: 21c18b5b4dab3a44a8912fb8ca61cb7c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 5986828395730659517, guid: 21c18b5b4dab3a44a8912fb8ca61cb7c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -134
       objectReference: {fileID: 0}
     - target: {fileID: 6342186988071511622, guid: 21c18b5b4dab3a44a8912fb8ca61cb7c, type: 3}
       propertyPath: m_Pivot.x

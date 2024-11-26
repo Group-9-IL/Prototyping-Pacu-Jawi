@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: boost
   m_EditorClassIdentifier: 
   itemName: Boost
-  itemIcon: {fileID: 21300000, guid: 0ed26a03ba3a57c4b93d6baa558df394, type: 3}
+  itemIcon: {fileID: 21300000, guid: eb9a04096fd5f8c40a8c161fbd8367b1, type: 3}
   dropRate: 0.25
