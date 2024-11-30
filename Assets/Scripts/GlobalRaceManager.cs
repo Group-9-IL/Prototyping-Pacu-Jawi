@@ -11,11 +11,12 @@ public class GlobalRaceManager : MonoBehaviour
     public List<Vector3> startPositon;
     public List<Quaternion> startRotation;
     public List<GameObject> carPrefabs;
+    public List<Transform> botWayPoints;
 
     private List<PlayerRaceManager> listPlayerManager = new List<PlayerRaceManager>();
     private bool allPlayerFinished = false;
 
-    void Start()
+    void Awake()
     {
 
         for(int i = 0;i < totalPlayer; i++)
@@ -27,7 +28,7 @@ public class GlobalRaceManager : MonoBehaviour
         foreach (PlayerRaceManager player in FindObjectsOfType<PlayerRaceManager>())
         {
             listPlayerManager.Add(player);
-            player.setLapTotal(lapTotal);
+            player.SetLapTotal(lapTotal);
         }
 
 
@@ -40,7 +41,7 @@ public class GlobalRaceManager : MonoBehaviour
 
         foreach(PlayerRaceManager player in listPlayerManager)
         {
-            if (!player.getRaceFinished())
+            if (!player.GetRaceFinished())
             {
                 allPlayerFinished = false;
                 break;

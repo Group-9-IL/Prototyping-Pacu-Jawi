@@ -41,12 +41,12 @@ public class PlayerRaceManager : MonoBehaviour
         }
     }
 
-    public void setLapTotal(int lap)
+    public void SetLapTotal(int lap)
     {
         lapTotal = lap;
     }
 
-    public bool getRaceFinished()
+    public bool GetRaceFinished()
     {
         return raceFinished;
     }

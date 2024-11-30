@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 25
   accelarationRate: 10
-  normalSteeringAngle: 10
-  driftSteeringAngle: 10
+  normalSteeringAngle: 7
+  driftSteeringAngle: 9
   highSteeringAngle: 5
   downForce: 3000
   initialAccelaration: 300

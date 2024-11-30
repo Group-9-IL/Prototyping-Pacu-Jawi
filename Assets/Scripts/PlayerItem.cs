@@ -21,7 +21,6 @@ public class PlayerItem : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.V) && ( currentItem != null))
         {
             UseItem();
-            Debug.Log("Make Item");
         }
 
         if(delayItem > 0)
@@ -33,10 +32,7 @@ public class PlayerItem : MonoBehaviour
     private void UseItem()
     {
 
-        if(currentItem.itemName == "Mud")
-        {
-            player.ItemMud();
-        }else if(currentItem.itemName == "Boost")
+        if(currentItem.itemName == "Boost")
         {
             player.ItemBoost();
         }else if(currentItem.itemName == "Clean Run")
@@ -57,10 +53,8 @@ public class PlayerItem : MonoBehaviour
             delayItem = 5f;
             GachaBox gachaBoxInstance = other.gameObject.GetComponent<GachaBox>();
             currentItem = gachaBoxInstance.OpenBox();
-            dropItem.SetBool("hasItemAnim",true);
-            hasItem=true;
-            Debug.Log(currentItem.itemName);
-
+            //dropItem.SetBool("hasItemAnim", true);
+            //hasItem = true;
         }
     }
 }

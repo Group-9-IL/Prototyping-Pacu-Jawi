@@ -6,18 +6,20 @@ using UnityEngine.UI;
 public class GachaBox : MonoBehaviour
 {
     private GachaManager gachaManager;
+    private PlayerItem playerItemObject;
     public Image playerItem;
     private void Start()
     {
         gachaManager = FindObjectOfType<GachaManager>();
-        GameObject playerItemObject = GameObject.Find("PlayerItem");
-        if (playerItem == null)
-        {
-           playerItem = playerItemObject.GetComponent<Image>();
-        }else
-        {
-           Debug.LogError("PlayerItem tidak ditemukan");
-        }
+        playerItemObject = FindObjectOfType<PlayerItem>();
+
+        //if (playerItem == null)
+        //{
+        //   playerItem = playerItemObject.GetComponent<Image>();
+        //}else
+        //{
+        //   Debug.LogError("PlayerItem tidak ditemukan");
+        //}
     }
 
     public GachaItem OpenBox()
