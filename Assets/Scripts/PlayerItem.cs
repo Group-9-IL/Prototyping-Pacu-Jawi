@@ -9,7 +9,7 @@ public class PlayerItem : MonoBehaviour
     private PlayerMovement player;
     private Animator dropItem;
     private float delayItem = 0f;
-    private bool hasItem = false;
+    // private bool hasItem = false;
 
     private void Start()
     {

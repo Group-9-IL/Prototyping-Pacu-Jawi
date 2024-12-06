@@ -9,9 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 20c2417c41163314fb154d0e3f4cdbbd
   - enabled: 1
+    path: Assets/Scenes/RiceField.unity
+    guid: 35406ae7373dba94d96e455b96d57fac
+  - enabled: 1
+    path: Assets/Scenes/Riverside.unity
+    guid: 61c18a29f13f88c44b35d69cdb7c589d
+  - enabled: 1
     path: Assets/Scenes/Mountain.unity
     guid: 9af533762b42ea34b9e4da7975185836
   - enabled: 1
     path: Assets/Scenes/Prototype.unity
-    guid: 8f355d12d8decf7459b1a94b05572c82
+    guid: 09648c4f45b52b844b451913481c37de
   m_configObjects: {}

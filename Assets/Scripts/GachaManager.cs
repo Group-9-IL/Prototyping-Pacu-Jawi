@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class GachaManager : MonoBehaviour
@@ -17,7 +19,7 @@ public class GachaManager : MonoBehaviour
 
     private void Update()
     {
-        if(TimerManager.Instance.getCurrentTime() > sumSpawned * 45)
+        if(TimerManager.Instance !=null && TimerManager.Instance.getCurrentTime() > sumSpawned * 45)
         {
             SpawnGachaBox();
         }
@@ -32,7 +34,7 @@ public class GachaManager : MonoBehaviour
             totalWeight += item.dropRate;
         }
 
-        float randomValue = Random.Range(0f,totalWeight);
+        float randomValue = UnityEngine.Random.Range(0f,totalWeight);
         float cumulativeWeight = 0f;
         
         foreach (var item in gachaItems)
@@ -54,8 +56,8 @@ public class GachaManager : MonoBehaviour
         {
             Destroy(box.gameObject);
         }
-
-        for (int i = 0; i < 4; i++)
+        int spawnCount = Mathf.Min(4,spawnPosition.Count);
+        for (int i = 0; i < spawnCount; i++)
         {
             Instantiate(gachaBox, spawnPosition[i], Quaternion.identity);
         }

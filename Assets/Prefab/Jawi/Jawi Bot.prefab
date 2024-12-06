@@ -816,7 +816,7 @@ GameObject:
   - component: {fileID: 2378186369880737664}
   m_Layer: 6
   m_Name: Jawi Bot
-  m_TagString: Player
+  m_TagString: Bot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
