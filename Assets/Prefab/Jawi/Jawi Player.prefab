@@ -992,13 +992,9 @@ MonoBehaviour:
   frontRightWheel: {fileID: 5057512286205569752}
   rearLeftWheel: {fileID: 6602525371051540654}
   rearRightWheel: {fileID: 4178421824684103262}
-  mudPrefab: {fileID: 5901260061583846324, guid: af29c681251395444960b7a25895c72e, type: 3}
   opponentLayer:
     serializedVersion: 2
     m_Bits: 64
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!65 &495755246700006022
 BoxCollider:
   m_ObjectHideFlags: 0
