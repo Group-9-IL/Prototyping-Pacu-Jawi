@@ -909,7 +909,7 @@ GameObject:
   - component: {fileID: 495755246700006022}
   - component: {fileID: 8625332718749524004}
   m_Layer: 6
-  m_Name: Jawi Player
+  m_Name: Jawi Player 3
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

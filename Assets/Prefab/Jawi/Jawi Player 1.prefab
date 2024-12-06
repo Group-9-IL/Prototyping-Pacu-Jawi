@@ -909,7 +909,7 @@ GameObject:
   - component: {fileID: 495755246700006022}
   - component: {fileID: 8625332718749524004}
   m_Layer: 6
-  m_Name: Jawi Player
+  m_Name: Jawi Player 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1293,7 +1293,7 @@ GameObject:
   - component: {fileID: 7223070475460531734}
   - component: {fileID: 3859413900176801089}
   - component: {fileID: 2751943755706359105}
-  - component: {fileID: 5717488595936092968}
+  - component: {fileID: 5018949802686222625}
   m_Layer: 6
   m_Name: Cylinder.002
   m_TagString: Untagged
@@ -1366,7 +1366,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5717488595936092968
+--- !u!64 &5018949802686222625
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
