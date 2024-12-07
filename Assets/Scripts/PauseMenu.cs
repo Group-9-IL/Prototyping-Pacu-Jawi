@@ -8,6 +8,10 @@ public class PauseMenu : MonoBehaviour
     public static bool gameIsPaused = false;
     public GameObject pauseUI;
     public GameObject gameUI;
+    private SceneLoader sceneLoader;
+    private void Start(){
+        sceneLoader = FindObjectOfType<SceneLoader>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -36,6 +40,7 @@ public class PauseMenu : MonoBehaviour
         gameIsPaused=true;
     }
     public void backMenu(){
-        SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
+        sceneLoader.LoadSceneWithLoading("MainMenu");
     }
 }

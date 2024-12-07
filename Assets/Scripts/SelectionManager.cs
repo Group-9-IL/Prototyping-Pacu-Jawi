@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using JetBrains.Annotations;
+using System.Collections;
 
 public class SelectionManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class SelectionManager : MonoBehaviour
     public Button characterButton3;
 
     private int selectedCharacter;
+    public SceneLoader sceneLoader;
 
     void Start()
     {
@@ -71,8 +73,26 @@ public class SelectionManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("SelectedLevel", levelNumber);
         PlayerPrefs.Save();
+        string levelSceneName = GetSceneNameForLevel(levelNumber);
         // Muat scene berdasarkan level yang dipilih
-        SceneManager.LoadScene(levelNumber);
+        if (sceneLoader != null)
+        {
+            sceneLoader.LoadSceneWithLoading(levelSceneName);
+        }
+        else
+        {
+            Debug.LogError("SceneLoader tidak ditemukan!");
+        }
+    }
+    string GetSceneNameForLevel(int levelNumber)
+    {
+        switch (levelNumber)
+        {
+            case 1: return "RiceField";
+            case 2: return "RiverSide";
+            case 3: return "Mountain";
+            default: return "Ricefield";
+        }
     }
 
     // Fungsi untuk memilih karakter
