@@ -19,7 +19,6 @@ public class GlobalRaceManager : MonoBehaviour
     void Awake()
     {   
         int selectedCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter",0);
-        Debug.Log(selectedCharacterIndex);
         Instantiate(carPrefabs[selectedCharacterIndex],startPositon[0],startRotation[0]);
         int currentLevel = PlayerPrefs.GetInt("SelectedLevel", 1); // Ambil level yang dipilih
         int botCharacter = PlayerPrefs.GetInt("BotCharacterForLevel" + currentLevel, 0);
