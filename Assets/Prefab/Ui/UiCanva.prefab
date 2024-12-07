@@ -1051,40 +1051,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Items
       objectReference: {fileID: 0}
-    - target: {fileID: 3660451200805121019, guid: c707fce395eee1e46be0c8500c3047b7, type: 3}
-      propertyPath: m_Name
-      value: PlayerItemUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236794789458330454, guid: c707fce395eee1e46be0c8500c3047b7, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236794789458330454, guid: c707fce395eee1e46be0c8500c3047b7, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236794789458330454, guid: c707fce395eee1e46be0c8500c3047b7, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236794789458330454, guid: c707fce395eee1e46be0c8500c3047b7, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236794789458330454, guid: c707fce395eee1e46be0c8500c3047b7, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236794789458330454, guid: c707fce395eee1e46be0c8500c3047b7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -2.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236794789458330454, guid: c707fce395eee1e46be0c8500c3047b7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 101.77222
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6364996238727613716, guid: c707fce395eee1e46be0c8500c3047b7, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

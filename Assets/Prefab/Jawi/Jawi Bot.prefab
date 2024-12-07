@@ -891,7 +891,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9121a5aac6fc40b4bb145161c456002b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jawiStats: {fileID: 11400000, guid: 718357e35e4bb1a409836fd0e88406bf, type: 2}
   rb: {fileID: 5461770601948993179}
   frontLeftWheel: {fileID: 1407280051805417532}
   frontRightWheel: {fileID: 5057512286205569752}
@@ -900,6 +899,10 @@ MonoBehaviour:
   opponentLayer:
     serializedVersion: 2
     m_Bits: 64
+  maxSpeed: 25
+  accelarationRate: 10
+  highSteeringAngle: 7
+  normalSteeringAngle: 9
 --- !u!1 &5112916800888290539
 GameObject:
   m_ObjectHideFlags: 0
