@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using JetBrains.Annotations;
 
 public class SelectionManager : MonoBehaviour
 {
@@ -13,27 +14,26 @@ public class SelectionManager : MonoBehaviour
     public Button characterButton2;
     public Button characterButton3;
 
-    // Buffalo Buttons
-    public Button buffaloButton2;
-    public Button buffaloButton3;
-
     private int selectedCharacter;
-    private int selectedBuffalo;
 
     void Start()
     {
         // Memeriksa status terbuka atau terkunci dari PlayerPrefs
         CheckLevelProgress();
         CheckCharacterProgress();
-        CheckBuffaloProgress();
 
         // Memastikan Level 1 selalu bisa dimainkan
         level1Button.interactable = true;
 
-        // Muat pilihan karakter dan buffalo sebelumnya (jika ada)
+        // Muat pilihan karakter sebelumnya (jika ada)
         LoadSelections();
+       
     }
-
+    public void SetupBotForLevels(){
+        SaveBotCharacterForLevel(1, 1); 
+        SaveBotCharacterForLevel(2, 2); 
+        SaveBotCharacterForLevel(3, 0);
+    }
     // Fungsi untuk memeriksa dan mengubah status level
     void CheckLevelProgress()
     {
@@ -60,24 +60,10 @@ public class SelectionManager : MonoBehaviour
         }
     }
 
-    // Fungsi untuk memeriksa dan mengubah status buffalo
-    void CheckBuffaloProgress()
-    {
-        if (PlayerPrefs.GetInt("Buffalo1Selected", 0) == 1)
-        {
-            buffaloButton2.interactable = true; // Unlock Buffalo 2
-        }
-        if (PlayerPrefs.GetInt("Buffalo2Selected", 0) == 1)
-        {
-            buffaloButton3.interactable = true; // Unlock Buffalo 3
-        }
-    }
-
-    // Fungsi untuk memuat pilihan karakter dan buffalo
+    // Fungsi untuk memuat pilihan karakter
     void LoadSelections()
     {
-        selectedCharacter = PlayerPrefs.GetInt("SelectedCharacter", 1); // Default ke karakter 1
-        selectedBuffalo = PlayerPrefs.GetInt("SelectedBuffalo", 1); // Default ke buffalo 1
+        selectedCharacter = PlayerPrefs.GetInt("SelectedCharacter", 0); // Default ke karakter 1
     }
 
     // Fungsi untuk memilih level dan memulai permainan
@@ -85,7 +71,6 @@ public class SelectionManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("SelectedLevel", levelNumber);
         PlayerPrefs.Save();
-
         // Muat scene berdasarkan level yang dipilih
         SceneManager.LoadScene(levelNumber);
     }
@@ -98,18 +83,16 @@ public class SelectionManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    // Fungsi untuk memilih buffalo
-    public void SelectBuffalo(int buffaloNumber)
-    {
-        selectedBuffalo = buffaloNumber;
-        PlayerPrefs.SetInt("SelectedBuffalo", selectedBuffalo);
-        PlayerPrefs.Save();
-    }
-
     // Fungsi untuk mengupdate status level yang selesai
     public void CompleteLevel(int levelNumber)
     {
         PlayerPrefs.SetInt("Level" + levelNumber + "Completed", 1);
         PlayerPrefs.Save();
     }
+    public void SaveBotCharacterForLevel(int level, int characterNumber)
+    {
+        PlayerPrefs.SetInt("CharacterForLevel_" + level, characterNumber);
+        PlayerPrefs.Save();
+    }
+
 }
