@@ -1,19 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerItem : MonoBehaviour
 {
-
     private GachaItem currentItem;
     private PlayerMovement player;
     private Animator dropItem;
     private float delayItem = 0f;
-    // private bool hasItem = false;
+    public Image playerItem;
 
     private void Start()
     {
         player = GetComponent<PlayerMovement>();
+        GameObject item = GameObject.Find("Items");
+        dropItem = item.GetComponent<Animator>();
+        GameObject playerItemObject = GameObject.Find("PlayerItemUI");
+        Debug.Log("item :"+item.activeInHierarchy);
+        if (playerItem == null)
+        {
+            playerItem = playerItemObject.GetComponent<Image>();
+        }
     }
 
     void Update()
@@ -49,12 +57,13 @@ public class PlayerItem : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("gachaBox") && (currentItem == null) && delayItem <= 0)
-        {
+        {  
             delayItem = 5f;
             GachaBox gachaBoxInstance = other.gameObject.GetComponent<GachaBox>();
             currentItem = gachaBoxInstance.OpenBox();
-            //dropItem.SetBool("hasItemAnim", true);
-            //hasItem = true;
+            playerItem.sprite=currentItem.itemIcon;
+            dropItem.SetBool("hasItemAnim", true);
+            
         }
     }
 }

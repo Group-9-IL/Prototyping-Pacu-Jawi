@@ -9,7 +9,6 @@ public class MainMenu : MonoBehaviour
     public GameObject mainMenu;
     public GameObject charSelect;
     public GameObject mapSelect;
-    public GameObject buffaloSelect;
     public GameObject credit;
     public GameObject setting;
     public GameObject exit;
@@ -32,13 +31,7 @@ public class MainMenu : MonoBehaviour
         OpenMenu(charSelect);
     }
     public void characterButton(){
-        OpenMenu(buffaloSelect);
-    }
-    public void buffaloButton(){
         OpenMenu(mapSelect);
-    }
-    public void mapButton(){
-        
     }
     public void backButton(){
         if (menuStack.Count > 1)

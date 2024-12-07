@@ -17,13 +17,16 @@ public class GlobalRaceManager : MonoBehaviour
     private bool allPlayerFinished = false;
 
     void Awake()
-    {
-
-        for(int i = 0;i < totalPlayer; i++)
+    {   
+        int selectedCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter",0);
+        Debug.Log(selectedCharacterIndex);
+        Instantiate(carPrefabs[selectedCharacterIndex],startPositon[0],startRotation[0]);
+        int currentLevel = PlayerPrefs.GetInt("SelectedLevel", 1); // Ambil level yang dipilih
+        int botCharacter = PlayerPrefs.GetInt("BotCharacterForLevel" + currentLevel, 0);
+        if (botCharacter >= 0 && botCharacter < carPrefabs.Count)
         {
-            Instantiate(carPrefabs[i], startPositon[i], startRotation[i]);
+        Instantiate(carPrefabs[botCharacter], startPositon[1], startRotation[1]);
         }
-
 
         foreach (PlayerRaceManager player in FindObjectsOfType<PlayerRaceManager>())
         {
