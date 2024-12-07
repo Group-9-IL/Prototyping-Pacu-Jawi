@@ -17,21 +17,19 @@ public class AIController : MonoBehaviour
     public float normalSteeringAngle;
 
     private List<Transform> wayPoints;
+    private float currentMaxSpeed;
     private int currentWayPoint;
-    private bool hasEntered = false;
+    private bool hasEntered;
+    private Vector3 brakeForceVector;
+    private float wayPointTimer;
 
     void Start()
     {
         currentWayPoint = 0;
         GlobalRaceManager globalRaceManager = FindObjectOfType<GlobalRaceManager>();
         wayPoints = globalRaceManager.botWayPoints;
+        currentMaxSpeed = maxSpeed;
     }
-
-    void Update()
-    {
-        Debug.Log(rb.velocity.magnitude);
-    }
-
     void FixedUpdate()
     {
         HandleAcceleration();
@@ -46,39 +44,60 @@ public class AIController : MonoBehaviour
         float angleToWaypoint = Vector3.SignedAngle(transform.forward, directionToWaypoint, Vector3.up);
         float distanceToWaypoint = Vector3.Distance(transform.position, wayPoints[currentWayPoint].position);
 
-        if (Mathf.Abs(angleToWaypoint) > 25f)
+        if (Mathf.Abs(angleToWaypoint) > 25f && distanceToWaypoint < 10f)
         {
-            maxSpeed = 18f;
+            if(maxSpeed == 27f)
+            {
+                currentMaxSpeed = 18f;
+            }else
+            {
+                currentMaxSpeed = 7.5f;
+            }
         } else
         {
-            maxSpeed = 27.5f;
+            if (maxSpeed == 27f)
+            {
+                currentMaxSpeed = 27f;
+            }
+            else
+            {
+                currentMaxSpeed = 10.5f;
+            }
         }
 
-        if (rb.velocity.magnitude < maxSpeed)
+        if (rb.velocity.magnitude < currentMaxSpeed)
         {
-            if (dotProduct < 0f) 
+            if (dotProduct < 0f)
             {
-                Vector3 brakeForceVector = -rb.velocity.normalized * 12f;
+                brakeForceVector = -rb.velocity.normalized * (maxSpeed == 27f ? 12f : 6f);
                 rb.AddForce(brakeForceVector, ForceMode.Acceleration);
             }
             else
             {
                 if (rb.velocity.magnitude < 1f)
                 {
-                    rb.AddForce(directionToWaypoint * 300, ForceMode.Acceleration);
+                    rb.AddForce(directionToWaypoint * 1000, ForceMode.Acceleration);
                 }
                 else
                 {
                     rb.AddForce(directionToWaypoint * accelarationRate, ForceMode.Acceleration);
                 }
             }
-        } else
+        }
+        else
         {
-            Vector3 brakeForceVector = -rb.velocity.normalized * 7.5f;
+            brakeForceVector = -rb.velocity.normalized * (maxSpeed == 27f ? 7.5f : 3f);
             rb.AddForce(brakeForceVector, ForceMode.Acceleration);
         }
 
-        rb.AddForce(-transform.up * 3000 * rb.velocity.magnitude);
+        if(maxSpeed == 27f)
+        {
+           rb.AddForce(-transform.up * 3000 * rb.velocity.magnitude);
+        }
+        else
+        {
+            rb.AddForce(-transform.up * 250 * rb.velocity.magnitude);
+        }
         rb.angularVelocity = Vector3.ClampMagnitude(rb.angularVelocity, 3f);
     }
 
@@ -86,11 +105,10 @@ public class AIController : MonoBehaviour
     {
         Vector3 directionToWaypoint = (wayPoints[currentWayPoint].position - transform.position).normalized;
 
-
         float angleToWaypoint = Vector3.SignedAngle(transform.forward, directionToWaypoint, Vector3.up);
 
         float steeringInput = Mathf.Sign(angleToWaypoint);
-        float adjustedSteeringAngle = Mathf.Lerp(normalSteeringAngle, highSteeringAngle, rb.velocity.magnitude / maxSpeed) * steeringInput;
+        float adjustedSteeringAngle = Mathf.Lerp(normalSteeringAngle, highSteeringAngle, rb.velocity.magnitude / currentMaxSpeed) * steeringInput;
 
         frontLeftWheel.steerAngle = adjustedSteeringAngle;
         frontRightWheel.steerAngle = adjustedSteeringAngle;
@@ -115,7 +133,8 @@ public class AIController : MonoBehaviour
 
     private IEnumerator ResetTriggerFlag()
     {
-        yield return new WaitForSeconds(0.3f); 
+        float delay = maxSpeed == 27f ? 0.7f : 0.4f;
+        yield return new WaitForSeconds(delay); 
         hasEntered = false;
     }
 }

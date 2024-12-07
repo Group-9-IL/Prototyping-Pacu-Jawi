@@ -46,17 +46,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lapTotal: 3
-  totalPlayer: 2
+  botCarPrefab: {fileID: 0}
   startPositon:
   - {x: 3.31, y: 9.8, z: 160}
   - {x: 6.78, y: 10.34, z: 164.33}
   startRotation:
   - {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
   - {x: 0, y: 0.70710677, z: 0, w: -0.70710677}
-  carPrefabs:
-  - {fileID: 4709803866135330879, guid: 1dcb5cb5e84a3b543a27339668cc7c56, type: 3}
-  - {fileID: 4709803866135330879, guid: f233a65d99f73c048a3fd0c235ac371d, type: 3}
-  botWayPoints: []
+  playerCarPrefabs: []
+  botWayPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &4577856018047789228
 MonoBehaviour:
   m_ObjectHideFlags: 0

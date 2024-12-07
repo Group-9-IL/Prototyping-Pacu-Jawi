@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c6a11efd5c1fa94db4a7a2d985b3201, type: 3}
+  m_Name: Jawi Ricefield
+  m_EditorClassIdentifier: 
+  maxSpeed: 10
+  accelarationRate: 3
+  normalSteeringAngle: 8
+  driftSteeringAngle: 9
+  highSteeringAngle: 6
+  downForce: 3000
+  initialAccelaration: 300
+  maxStamina: 100
+  staminaDepletion: 15
+  staminaRefill: 3
+  maxBoostSpeed: 15
+  boostAccelarationRate: 6

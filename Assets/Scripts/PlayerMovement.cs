@@ -44,11 +44,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (!TimerManager.Instance.getIsGameStarted())
-        {
-            rb.velocity = Vector3.zero;
-            return;
-        }
+        //if (!TimerManager.Instance.getIsGameStarted())
+        //{
+        //    rb.velocity = Vector3.zero;
+        //    return;
+        //}
 
         accelarationInput = Input.GetAxisRaw("Vertical");
         steeringInput = Input.GetAxisRaw("Horizontal");

@@ -6,27 +6,23 @@ using UnityEngine.TextCore.Text;
 public class GlobalRaceManager : MonoBehaviour
 {
 
-    public int lapTotal;    
-    public int totalPlayer;
+    public int lapTotal;
+    public GameObject botCarPrefab;
     public List<Vector3> startPositon;
     public List<Quaternion> startRotation;
-    public List<GameObject> carPrefabs;
+    public List<GameObject> playerCarPrefabs;
     public List<Transform> botWayPoints;
 
     private List<PlayerRaceManager> listPlayerManager = new List<PlayerRaceManager>();
-    private bool allPlayerFinished = false;
+    private bool playerFinished = false;
+    private bool botFinished = false;
 
     void Awake()
     {   
         int selectedCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter",0);
-        Debug.Log(selectedCharacterIndex);
-        Instantiate(carPrefabs[selectedCharacterIndex],startPositon[0],startRotation[0]);
-        int currentLevel = PlayerPrefs.GetInt("SelectedLevel", 1); // Ambil level yang dipilih
-        int botCharacter = PlayerPrefs.GetInt("BotCharacterForLevel" + currentLevel, 0);
-        if (botCharacter >= 0 && botCharacter < carPrefabs.Count)
-        {
-        Instantiate(carPrefabs[botCharacter], startPositon[1], startRotation[1]);
-        }
+
+        Instantiate(playerCarPrefabs[selectedCharacterIndex], startPositon[0], startRotation[0]);
+        Instantiate(botCarPrefab, startPositon[1], startRotation[1]);
 
         foreach (PlayerRaceManager player in FindObjectsOfType<PlayerRaceManager>())
         {
@@ -34,33 +30,32 @@ public class GlobalRaceManager : MonoBehaviour
             player.SetLapTotal(lapTotal);
         }
 
-
     }
 
     void Update()
     {
 
-        allPlayerFinished = true;
+        //allPlayerFinished = true;
 
-        foreach(PlayerRaceManager player in listPlayerManager)
-        {
-            if (!player.GetRaceFinished())
-            {
-                allPlayerFinished = false;
-                break;
-            }
-        }
+        //foreach (PlayerRaceManager player in listPlayerManager)
+        //{
+        //    if (!player.GetRaceFinished())
+        //    {
+        //        allPlayerFinished = false;
+        //        break;
+        //    }
+        //}
 
-        if (allPlayerFinished)
-        {
-            ForceStopRace();
-        }
+        //if (allPlayerFinished)
+        //{
+        //    ForceStopRace();
+        //}
 
 
-        if(TimerManager.Instance.getCurrentTime() > 300)
-        {
-            ForceStopRace();
-        }
+        //if(TimerManager.Instance.getCurrentTime() > 300)
+        //{
+        //    ForceStopRace();
+        //}
     }
 
     void ForceStopRace()

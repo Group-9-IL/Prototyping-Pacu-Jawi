@@ -1,97 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &950404400812730071
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5895887703725338240}
-  - component: {fileID: 8143630606984160138}
-  - component: {fileID: 2733613116836582646}
-  m_Layer: 6
-  m_Name: Main Camera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5895887703725338240
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950404400812730071}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 0, y: 6.42, z: -7.91}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2206230022229587950}
-  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
---- !u!20 &8143630606984160138
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950404400812730071}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_Iso: 200
-  m_ShutterSpeed: 0.005
-  m_Aperture: 16
-  m_FocusDistance: 10
-  m_FocalLength: 50
-  m_BladeCount: 5
-  m_Curvature: {x: 2, y: 11}
-  m_BarrelClipping: 0.25
-  m_Anamorphism: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!81 &2733613116836582646
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950404400812730071}
-  m_Enabled: 1
 --- !u!1 &1756289100455277988
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,11 +767,10 @@ GameObject:
   - component: {fileID: 2206230022229587950}
   - component: {fileID: 5461770601948993179}
   - component: {fileID: -6957459179369860410}
-  - component: {fileID: 8841366726140757669}
   - component: {fileID: 495755246700006022}
-  - component: {fileID: 8625332718749524004}
+  - component: {fileID: -620684237591599972}
   m_Layer: 6
-  m_Name: Jawi Player - Lutfi
+  m_Name: Jawi Bot - Luthfi (Normal)
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -882,8 +789,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2879469621486951189}
-  - {fileID: 5895887703725338240}
+  - {fileID: 2982576609279089445}
   - {fileID: 5602313083417716305}
   - {fileID: 1478680645601746806}
   - {fileID: 1470033886300714549}
@@ -928,28 +834,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d10a030830b26bf4d8263ab96dc45a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8841366726140757669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4709803866135330879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cb59a2812cab284fa1a8f5cd1e7bce5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jawiStats: {fileID: 11400000, guid: 718357e35e4bb1a409836fd0e88406bf, type: 2}
-  rb: {fileID: 5461770601948993179}
-  mainCamera: {fileID: 8143630606984160138}
-  frontLeftWheel: {fileID: 1407280051805417532}
-  frontRightWheel: {fileID: 5057512286205569752}
-  rearLeftWheel: {fileID: 6602525371051540654}
-  rearRightWheel: {fileID: 4178421824684103262}
-  opponentLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!65 &495755246700006022
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -971,7 +855,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.96745723, y: 1.1802745, z: 3.942161}
   m_Center: {x: -0.016271383, y: -0.09013748, z: -0.052137375}
---- !u!114 &8625332718749524004
+--- !u!114 &-620684237591599972
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -980,9 +864,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 4709803866135330879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d5ff48dcd5d9f64d8af32d3b35c5b65, type: 3}
+  m_Script: {fileID: 11500000, guid: 9121a5aac6fc40b4bb145161c456002b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 5461770601948993179}
+  frontLeftWheel: {fileID: 1407280051805417532}
+  frontRightWheel: {fileID: 5057512286205569752}
+  rearLeftWheel: {fileID: 6602525371051540654}
+  rearRightWheel: {fileID: 4178421824684103262}
+  opponentLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  maxSpeed: 27
+  accelarationRate: 11
+  highSteeringAngle: 10
+  normalSteeringAngle: 10
 --- !u!1 &5112916800888290539
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,7 +1240,7 @@ CapsuleCollider:
   m_Height: 0.60729134
   m_Direction: 1
   m_Center: {x: 0.13910274, y: -0.19349149, z: -2.5091903e-16}
---- !u!1001 &9177786711928542297
+--- !u!1001 &8201019331228144745
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1401,8 +1297,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bc57c54c24869d108162f194bc56ca9, type: 3}
---- !u!4 &2879469621486951189 stripped
+--- !u!4 &2982576609279089445 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6389449253052157772, guid: 4bc57c54c24869d108162f194bc56ca9, type: 3}
-  m_PrefabInstance: {fileID: 9177786711928542297}
+  m_PrefabInstance: {fileID: 8201019331228144745}
   m_PrefabAsset: {fileID: 0}
