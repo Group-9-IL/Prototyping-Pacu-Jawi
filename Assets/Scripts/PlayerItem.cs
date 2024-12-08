@@ -16,13 +16,10 @@ public class PlayerItem : MonoBehaviour
 
     private void Start()
     {
-<<<<<<< HEAD
         GameObject ItemUI = GameObject.Find("ItemUI");
         fade = ItemUI.GetComponent<Animator>();
-=======
         GameObject itemUI = GameObject.Find("ItemUI");
         fade = itemUI.GetComponent<Animator>();
->>>>>>> af545d478a0705ee570bf45401bfedff5db1bec0
         audioManager = FindAnyObjectByType<AudioManager>();
         player = GetComponent<PlayerMovement>();
         GameObject item = GameObject.Find("Items");
@@ -41,10 +38,6 @@ public class PlayerItem : MonoBehaviour
         {
             UseItem();
             fade.SetBool("getItem",false);
-<<<<<<< HEAD
-=======
-            Debug.Log("Item digunakan");
->>>>>>> af545d478a0705ee570bf45401bfedff5db1bec0
         }
 
         if(delayItem > 0)
