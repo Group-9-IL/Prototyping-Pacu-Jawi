@@ -19,7 +19,7 @@ public class GlobalRaceManager : MonoBehaviour
     private List<PlayerRaceManager> listPlayerManager = new List<PlayerRaceManager>();
     private bool playerFinished = false;
     private bool botFinished = false;
-    private bool allPlayerFinished = false;
+    private bool matchFinished = false;
 
     void Awake()
     {   
@@ -42,7 +42,6 @@ public class GlobalRaceManager : MonoBehaviour
         if (!TimerManager.Instance.getIsGameStarted())
         {
             Time.timeScale = 0;
-            Debug.Log("belom");
             return;
         } else
         {
@@ -60,28 +59,21 @@ public class GlobalRaceManager : MonoBehaviour
             if (player.CompareTag("Player") && player.GetRaceFinished())
             {
                 playerFinished = true;
-            }
-        }
-
-        if (!playerFinished && !botFinished)
-        {
-            if (playerFinished)
-            {
                 finishUI.SetActive(true);
-                if (botFinished)
+                if(!matchFinished)
                 {
-                    loseText.SetActive(true);
-                }
-                else
-                {
-                    winText.SetActive(true);
+                    if (botFinished)
+                    {
+                        loseText.SetActive(true);
+                        matchFinished = true ;
+                    }
+                    else
+                    {
+                        winText.SetActive(true);
+                        matchFinished = true;
+                    }
                 }
             }
         }
-    }
-
-    void ForceStopRace()
-    {
-
     }
 }

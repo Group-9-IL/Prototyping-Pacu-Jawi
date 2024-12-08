@@ -17,13 +17,19 @@ public class PlayerRaceManager : MonoBehaviour
 
     private void Start()
     {
-        firstNumber = GameObject.Find("FirstNumber");
-        secondNumber = GameObject.Find("SecondNumber");
-        thirdNumber = GameObject.Find("ThirdNumber");
+        if (CompareTag("Player"))
+        {
+            firstNumber = GameObject.Find("FirstNumber");
+            secondNumber = GameObject.Find("SecondNumber");
+            thirdNumber = GameObject.Find("ThirdNumber");
 
-        firstNumber.SetActive(true);
-        secondNumber.SetActive(false);
-        thirdNumber.SetActive(false);
+            if (firstNumber != null && secondNumber != null && thirdNumber != null)
+            {
+                firstNumber.SetActive(true);
+                secondNumber.SetActive(false);
+                thirdNumber.SetActive(false);
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)

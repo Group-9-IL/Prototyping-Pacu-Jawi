@@ -25,7 +25,6 @@ public class PlayerItem : MonoBehaviour
         GameObject item = GameObject.Find("Items");
         dropItem = item.GetComponent<Animator>();
         GameObject playerItemObject = GameObject.Find("PlayerItemUI");
-        Debug.Log("item :"+item.name);
         if (playerItem == null)
         {
             playerItem = playerItemObject.GetComponent<Image>();
