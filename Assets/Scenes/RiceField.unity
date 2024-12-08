@@ -3173,63 +3173,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 2e7b4c08d15ed3d4db75611b9034d497, type: 3}
---- !u!1001 &1338565341
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4359865056397507260, guid: c0a647bc4e54df3478b41ade573bceab, type: 3}
-      propertyPath: m_Name
-      value: SFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 8794314671682796417, guid: c0a647bc4e54df3478b41ade573bceab, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 737.4168
-      objectReference: {fileID: 0}
-    - target: {fileID: 8794314671682796417, guid: c0a647bc4e54df3478b41ade573bceab, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 549.03186
-      objectReference: {fileID: 0}
-    - target: {fileID: 8794314671682796417, guid: c0a647bc4e54df3478b41ade573bceab, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 6.6542234
-      objectReference: {fileID: 0}
-    - target: {fileID: 8794314671682796417, guid: c0a647bc4e54df3478b41ade573bceab, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8794314671682796417, guid: c0a647bc4e54df3478b41ade573bceab, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8794314671682796417, guid: c0a647bc4e54df3478b41ade573bceab, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8794314671682796417, guid: c0a647bc4e54df3478b41ade573bceab, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8794314671682796417, guid: c0a647bc4e54df3478b41ade573bceab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8794314671682796417, guid: c0a647bc4e54df3478b41ade573bceab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8794314671682796417, guid: c0a647bc4e54df3478b41ade573bceab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c0a647bc4e54df3478b41ade573bceab, type: 3}
 --- !u!1 &1338644074 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4614292834963630720, guid: cd531be2b05867b4fbeb25cee0d33dab, type: 3}
@@ -4166,6 +4109,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551332959}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1607688213 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3919550350806177220, guid: cd531be2b05867b4fbeb25cee0d33dab, type: 3}
+  m_PrefabInstance: {fileID: 1793400904}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1616247882
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4925,6 +4873,10 @@ PrefabInstance:
     - target: {fileID: 567166538964913872, guid: cd531be2b05867b4fbeb25cee0d33dab, type: 3}
       propertyPath: m_Name
       value: UiCanva
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493251630875668344, guid: cd531be2b05867b4fbeb25cee0d33dab, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6115926651968785761, guid: cd531be2b05867b4fbeb25cee0d33dab, type: 3}
       propertyPath: m_Pivot.x
@@ -19501,7 +19453,7 @@ MonoBehaviour:
   - {fileID: 998643301}
   - {fileID: 709946504}
   finishUI: {fileID: 1338644074}
-  loseText: {fileID: 2000381082}
+  loseText: {fileID: 1607688213}
   winText: {fileID: 1704409745}
 --- !u!114 &7995246366341923327
 MonoBehaviour:
@@ -21193,7 +21145,6 @@ SceneRoots:
   - {fileID: 1865989327}
   - {fileID: 8468730943444561836}
   - {fileID: 1458578218}
-  - {fileID: 1338565341}
   - {fileID: 543450652536439198}
   - {fileID: 536594777}
   - {fileID: 1642067995}
@@ -21205,5 +21156,4 @@ SceneRoots:
   - {fileID: 419849187}
   - {fileID: 503097741}
   - {fileID: 1412392631}
-  - {fileID: 2062540496}
   - {fileID: 675645286}

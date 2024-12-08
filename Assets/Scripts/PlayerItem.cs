@@ -18,8 +18,6 @@ public class PlayerItem : MonoBehaviour
     {
         GameObject ItemUI = GameObject.Find("ItemUI");
         fade = ItemUI.GetComponent<Animator>();
-        GameObject itemUI = GameObject.Find("ItemUI");
-        fade = itemUI.GetComponent<Animator>();
         audioManager = FindAnyObjectByType<AudioManager>();
         player = GetComponent<PlayerMovement>();
         GameObject item = GameObject.Find("Items");
@@ -69,13 +67,13 @@ public class PlayerItem : MonoBehaviour
     {
         if (other.gameObject.CompareTag("gachaBox") && (currentItem == null) && delayItem <= 0)
         {  
+            Debug.Log("Item didapatkan");
             delayItem = 5f;
             GachaBox gachaBoxInstance = other.gameObject.GetComponent<GachaBox>();
             currentItem = gachaBoxInstance.OpenBox();
             playerItem.sprite=currentItem.itemIcon;
             fade.SetBool("getItem",true);
             dropItem.SetBool("hasItemAnim", true);
-            fade.SetBool("getItem",true);
         }
     }
 }
