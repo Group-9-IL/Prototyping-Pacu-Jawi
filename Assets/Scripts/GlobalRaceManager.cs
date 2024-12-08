@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.TextCore.Text;
 
 public class GlobalRaceManager : MonoBehaviour
@@ -15,14 +16,20 @@ public class GlobalRaceManager : MonoBehaviour
     public GameObject finishUI;
     public GameObject loseText;
     public GameObject winText;
+    private SelectionManager selectionManager;
 
     private List<PlayerRaceManager> listPlayerManager = new List<PlayerRaceManager>();
     private bool playerFinished = false;
     private bool botFinished = false;
     private bool matchFinished = false;
+    private int currentLevel;
 
     void Awake()
     {   
+        int currentLevel = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log(currentLevel);
+        PlayerPrefs.SetInt("CurrentLevel", currentLevel);
+        PlayerPrefs.Save(); // Pastikan tersimpan
         int selectedCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter",0);
 
         Instantiate(playerCarPrefabs[selectedCharacterIndex], startPositon[0], startRotation[0]);
@@ -71,6 +78,7 @@ public class GlobalRaceManager : MonoBehaviour
                     {
                         winText.SetActive(true);
                         matchFinished = true;
+                        selectionManager.CompleteLevel(currentLevel);
                     }
                 }
             }
