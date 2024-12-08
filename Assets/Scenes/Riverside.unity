@@ -2404,7 +2404,7 @@ Transform:
   m_GameObject: {fileID: 1105310879}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -582.83, y: 65.31, z: -105.75}
+  m_LocalPosition: {x: -561.7, y: 65.9, z: -106.8}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3244,7 +3244,7 @@ Transform:
   m_GameObject: {fileID: 1323406338}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -571.56, y: 66.18, z: -76.33}
+  m_LocalPosition: {x: -561.7, y: 66.18, z: -83.5}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3557,6 +3557,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498130408}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1529161932
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 149896039668710360, guid: 9f36a37e97e063942925fe21e7d45ed6, type: 3}
+      propertyPath: m_Name
+      value: Gacha Box
+      objectReference: {fileID: 0}
+    - target: {fileID: 418128645204049635, guid: 9f36a37e97e063942925fe21e7d45ed6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3450.8574
+      objectReference: {fileID: 0}
+    - target: {fileID: 418128645204049635, guid: 9f36a37e97e063942925fe21e7d45ed6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 18.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 418128645204049635, guid: 9f36a37e97e063942925fe21e7d45ed6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 474.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 418128645204049635, guid: 9f36a37e97e063942925fe21e7d45ed6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 418128645204049635, guid: 9f36a37e97e063942925fe21e7d45ed6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 418128645204049635, guid: 9f36a37e97e063942925fe21e7d45ed6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 418128645204049635, guid: 9f36a37e97e063942925fe21e7d45ed6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 418128645204049635, guid: 9f36a37e97e063942925fe21e7d45ed6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 418128645204049635, guid: 9f36a37e97e063942925fe21e7d45ed6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 418128645204049635, guid: 9f36a37e97e063942925fe21e7d45ed6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9f36a37e97e063942925fe21e7d45ed6, type: 3}
 --- !u!64 &1645806100
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3841,7 +3898,7 @@ Transform:
   m_GameObject: {fileID: 1756274454}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -566.61, y: 65.31, z: -123.16}
+  m_LocalPosition: {x: -558.7, y: 65.31, z: -130.7}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8627,6 +8684,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8416272008554269593}
   m_Mesh: {fileID: -1550514412580984892, guid: fe56b57fc0a0fce43b453f26f010f5a4, type: 3}
+--- !u!1 &3010812935268909500
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5424484775915456289}
+  - component: {fileID: 6896939280394584790}
+  m_Layer: 0
+  m_Name: Gacha Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!65 &3014168746676503784
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11505,6 +11579,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1502877291095071539}
   m_Mesh: {fileID: -2865104911859505335, guid: fe56b57fc0a0fce43b453f26f010f5a4, type: 3}
+--- !u!4 &5424484775915456289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3010812935268909500}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.7226617, y: 1.1748103, z: 1.4493179}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &5430658036572450927
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12845,6 +12934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5197947301536787191}
   - component: {fileID: 3200001707278052407}
+  - component: {fileID: 6563462758171879909}
   m_Layer: 0
   m_Name: Game Race Manager
   m_TagString: Untagged
@@ -12852,6 +12942,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6563462758171879909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6563462758171879908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab899dcea94f13f4eb0629b947085d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &6573824645831663994
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13385,6 +13487,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543450652938825111}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6896939280394584790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3010812935268909500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a51783aeb65fcdb458ea8a723157f2a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gachaItems:
+  - {fileID: 11400000, guid: 962b3b9b226e65948aa6eed52d5d4ddd, type: 2}
+  - {fileID: 11400000, guid: 2265b34823967ee4dbd9fb6ab2be91ed, type: 2}
+  - {fileID: 11400000, guid: 4fe1a1f3da7314c44a1ac83b3c36153f, type: 2}
+  spawnPosition:
+  - {x: -3450.857, y: 18.89, z: 461.5}
+  - {x: -3450.857, y: 18.89, z: 466}
+  - {x: -3450.857, y: 18.89, z: 470.5}
+  - {x: -3450.857, y: 18.89, z: 475}
+  gachaBox: {fileID: 149896039668710360, guid: 9f36a37e97e063942925fe21e7d45ed6, type: 3}
 --- !u!1 &6897072526585603037
 GameObject:
   m_ObjectHideFlags: 0
@@ -15877,7 +16001,7 @@ Transform:
   m_GameObject: {fileID: 2800250516722876515}
   serializedVersion: 2
   m_LocalRotation: {x: 0.05285468, y: 0.33640575, z: 0.17570573, w: 0.9236694}
-  m_LocalPosition: {x: -3351.8525, y: 20.928022, z: 403.91525}
+  m_LocalPosition: {x: -3340.7, y: 20.93, z: 413.4}
   m_LocalScale: {x: 206.2363, y: 206.24385, z: 389.67514}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16352,3 +16476,5 @@ SceneRoots:
   - {fileID: 484222829}
   - {fileID: 1295474939}
   - {fileID: 207134933}
+  - {fileID: 5424484775915456289}
+  - {fileID: 1529161932}

@@ -31,7 +31,7 @@ public class TimerManager : MonoBehaviour
     {
         if (!isGameStarted)
         {
-            currentDelayTime -= Time.deltaTime;
+            currentDelayTime -= Time.unscaledDeltaTime;
             if(currentDelayTime < 0f)
             {
                 isGameStarted = true;
