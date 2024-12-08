@@ -11,6 +11,8 @@ TagManager:
   - Checkpoint_3
   - Line
   - PlayerItem
+  - Waypoint
+  - Bot
   layers:
   - Default
   - TransparentFX

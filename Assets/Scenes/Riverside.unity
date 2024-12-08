@@ -2672,10 +2672,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UiCanva
       objectReference: {fileID: 0}
-    - target: {fileID: 1583183891415840151, guid: cd531be2b05867b4fbeb25cee0d33dab, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6115926651968785761, guid: cd531be2b05867b4fbeb25cee0d33dab, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2706,18 +2702,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6115926651968785761, guid: cd531be2b05867b4fbeb25cee0d33dab, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6115926651968785761, guid: cd531be2b05867b4fbeb25cee0d33dab, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6115926651968785761, guid: cd531be2b05867b4fbeb25cee0d33dab, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6115926651968785761, guid: cd531be2b05867b4fbeb25cee0d33dab, type: 3}
-      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6115926651968785761, guid: cd531be2b05867b4fbeb25cee0d33dab, type: 3}
@@ -2773,6 +2757,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd531be2b05867b4fbeb25cee0d33dab, type: 3}
+--- !u!1 &1200577468 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3919550350806177220, guid: cd531be2b05867b4fbeb25cee0d33dab, type: 3}
+  m_PrefabInstance: {fileID: 1200577467}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1200577469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7734130746066735010, guid: cd531be2b05867b4fbeb25cee0d33dab, type: 3}
+  m_PrefabInstance: {fileID: 1200577467}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1200577470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4614292834963630720, guid: cd531be2b05867b4fbeb25cee0d33dab, type: 3}
+  m_PrefabInstance: {fileID: 1200577467}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1266196199
 GameObject:
   m_ObjectHideFlags: 0
@@ -9074,6 +9073,9 @@ MonoBehaviour:
   - {fileID: 614683714}
   - {fileID: 1810762767}
   - {fileID: 1366665770}
+  finishUI: {fileID: 1200577470}
+  loseText: {fileID: 1200577468}
+  winText: {fileID: 1200577469}
 --- !u!4 &3226996872878856758
 Transform:
   m_ObjectHideFlags: 0
