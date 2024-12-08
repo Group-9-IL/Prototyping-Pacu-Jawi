@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,12 +9,15 @@ public class PlayerItem : MonoBehaviour
     private GachaItem currentItem;
     private PlayerMovement player;
     private Animator dropItem;
+    private Animator fade;
     private float delayItem = 0f;
     public Image playerItem;
     private AudioManager audioManager;
 
     private void Start()
     {
+        GameObject ItemUI = GameObject.Find("ItemUI");
+        fade = ItemUI.GetComponent<Animator>();
         audioManager = FindAnyObjectByType<AudioManager>();
         player = GetComponent<PlayerMovement>();
         GameObject item = GameObject.Find("Items");
@@ -31,6 +35,7 @@ public class PlayerItem : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.V) && ( currentItem != null))
         {
             UseItem();
+            fade.SetBool("getItem",false);
         }
 
         if(delayItem > 0)
@@ -67,6 +72,7 @@ public class PlayerItem : MonoBehaviour
             GachaBox gachaBoxInstance = other.gameObject.GetComponent<GachaBox>();
             currentItem = gachaBoxInstance.OpenBox();
             playerItem.sprite=currentItem.itemIcon;
+            fade.SetBool("getItem",true);
             dropItem.SetBool("hasItemAnim", true);
             
         }
