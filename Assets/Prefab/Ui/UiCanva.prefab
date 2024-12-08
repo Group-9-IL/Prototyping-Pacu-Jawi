@@ -1702,6 +1702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5981515571460184789}
   - component: {fileID: 8551003412585559248}
+  - component: {fileID: 2324693332735223564}
   - component: {fileID: 8316323858822832268}
   m_Layer: 5
   m_Name: ItemUI
@@ -1742,6 +1743,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!95 &2324693332735223564
 --- !u!95 &8316323858822832268
 Animator:
   serializedVersion: 5
@@ -1752,6 +1754,7 @@ Animator:
   m_GameObject: {fileID: 7204445055249480503}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 79ab99b3f7d853f43854ce3480672e11, type: 2}
   m_Controller: {fileID: 9100000, guid: fd5c98f132261124f84865b729d304da, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
