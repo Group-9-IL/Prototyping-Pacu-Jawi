@@ -12,10 +12,14 @@ public class GlobalRaceManager : MonoBehaviour
     public List<Quaternion> startRotation;
     public List<GameObject> playerCarPrefabs;
     public List<Transform> botWayPoints;
+    public GameObject finishUI;
+    public GameObject loseText;
+    public GameObject winText;
 
     private List<PlayerRaceManager> listPlayerManager = new List<PlayerRaceManager>();
     private bool playerFinished = false;
     private bool botFinished = false;
+    private bool allPlayerFinished = false;
 
     void Awake()
     {   
@@ -45,27 +49,35 @@ public class GlobalRaceManager : MonoBehaviour
             Time.timeScale = 1;
         }
 
-        //allPlayerFinished = true;
 
-        //foreach (PlayerRaceManager player in listPlayerManager)
-        //{
-        //    if (!player.GetRaceFinished())
-        //    {
-        //        allPlayerFinished = false;
-        //        break;
-        //    }
-        //}
+        foreach (PlayerRaceManager player in listPlayerManager)
+        {
+            if(player.CompareTag("Bot") && player.GetRaceFinished())
+            {
+                botFinished = true;
+            }
 
-        //if (allPlayerFinished)
-        //{
-        //    ForceStopRace();
-        //}
+            if (player.CompareTag("Player") && player.GetRaceFinished())
+            {
+                playerFinished = true;
+            }
+        }
 
-
-        //if(TimerManager.Instance.getCurrentTime() > 300)
-        //{
-        //    ForceStopRace();
-        //}
+        if (!playerFinished && !botFinished)
+        {
+            if (playerFinished)
+            {
+                finishUI.SetActive(true);
+                if (botFinished)
+                {
+                    loseText.SetActive(true);
+                }
+                else
+                {
+                    winText.SetActive(true);
+                }
+            }
+        }
     }
 
     void ForceStopRace()

@@ -133,7 +133,7 @@ public class AIController : MonoBehaviour
 
     private IEnumerator ResetTriggerFlag()
     {
-        float delay = maxSpeed == 27f ? 0.7f : 0.4f;
+        float delay = maxSpeed == 27f ? 0.7f : 0.45f;
         yield return new WaitForSeconds(delay); 
         hasEntered = false;
     }

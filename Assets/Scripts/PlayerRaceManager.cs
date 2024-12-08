@@ -8,8 +8,23 @@ public class PlayerRaceManager : MonoBehaviour
 
     private int lapTotal;
     private int currentCheckPoint = 0;
-    private int currentLap = 0;
+    private int currentLap = 1;
     private bool raceFinished = false;
+    private GameObject firstNumber;
+    private GameObject secondNumber;
+    private GameObject thirdNumber;
+
+
+    private void Start()
+    {
+        firstNumber = GameObject.Find("FirstNumber");
+        secondNumber = GameObject.Find("SecondNumber");
+        thirdNumber = GameObject.Find("ThirdNumber");
+
+        firstNumber.SetActive(true);
+        secondNumber.SetActive(false);
+        thirdNumber.SetActive(false);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -34,6 +49,18 @@ public class PlayerRaceManager : MonoBehaviour
             {
                 currentLap++;
                 currentCheckPoint = 0;
+                if(CompareTag("Player"))
+                {
+                    if(currentLap == 2)
+                    {
+                        firstNumber.SetActive(false);
+                        secondNumber.SetActive(true);
+                    }else if(currentLap == 3)
+                    {
+                        thirdNumber.SetActive(true);
+                        secondNumber.SetActive(false);
+                    }
+                }
             }else
             {
                 raceFinished = true;

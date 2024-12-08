@@ -771,7 +771,7 @@ GameObject:
   - component: {fileID: 6244424403000240550}
   m_Layer: 6
   m_Name: Jawi Bot - Fikri (Ricefield)
-  m_TagString: Player
+  m_TagString: Bot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
