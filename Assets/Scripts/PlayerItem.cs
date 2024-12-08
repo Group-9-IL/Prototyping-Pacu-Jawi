@@ -10,14 +10,16 @@ public class PlayerItem : MonoBehaviour
     private Animator dropItem;
     private float delayItem = 0f;
     public Image playerItem;
+    private AudioManager audioManager;
 
     private void Start()
     {
+        audioManager = FindAnyObjectByType<AudioManager>();
         player = GetComponent<PlayerMovement>();
         GameObject item = GameObject.Find("Items");
         dropItem = item.GetComponent<Animator>();
         GameObject playerItemObject = GameObject.Find("PlayerItemUI");
-        Debug.Log("item :"+item.activeInHierarchy);
+        Debug.Log("item :"+item.name);
         if (playerItem == null)
         {
             playerItem = playerItemObject.GetComponent<Image>();
@@ -43,11 +45,14 @@ public class PlayerItem : MonoBehaviour
         if(currentItem.itemName == "Boost")
         {
             player.ItemBoost();
+            audioManager.PlaySFX(SfxCondition.speedBoost);
         }else if(currentItem.itemName == "Clean Run")
         {
             player.ItemCleanRun();
+            audioManager.PlaySFX(SfxCondition.cleanRun);
         }else if(currentItem.itemName == "Ram")
         {
+            audioManager.PlaySFX(SfxCondition.ram);
             player.ItemRam();
         }
 

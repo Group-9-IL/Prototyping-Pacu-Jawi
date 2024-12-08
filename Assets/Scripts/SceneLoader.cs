@@ -6,12 +6,6 @@ public class SceneLoader : MonoBehaviour
 {
     // Nama scene untuk loading screen
     public string loadingSceneName = "LoadingScreen";
-    private Animator animator;
-    
-    void Start(){
-        animator = GetComponent<Animator>();
-        animator.SetTrigger("Start");
-    }
     // Fungsi umum untuk memuat scene dengan loading screen
     public void LoadSceneWithLoading(string sceneToLoad)
     {
@@ -24,10 +18,10 @@ public class SceneLoader : MonoBehaviour
         AsyncOperation loadLoadingScreen = SceneManager.LoadSceneAsync(loadingSceneName);
         while (!loadLoadingScreen.isDone)
         {
-            Debug.Log("LoadingScene is loading: " + loadLoadingScreen.progress );
-            // if (loadLoadingScreen.progress >= 0.9f){
-            //     break;
-            // }
+            Debug.Log("LoadingScene is loading: " + loadLoadingScreen.progress * 100 + "%");
+            if (loadLoadingScreen.progress >= 0.9f){
+                break;
+            }
             yield return null;
         }
         // Setelah loading screen selesai dimuat, mulai memuat scene tujuan
@@ -37,7 +31,7 @@ public class SceneLoader : MonoBehaviour
         while (!loadScene.isDone)
         {
             Debug.Log("Scene is loading: " + loadScene.progress * 100 + "%");
-            if (loadScene.progress >= 0.5f)
+            if (loadScene.progress >= 0f)
             {
                 loadScene.allowSceneActivation = true;
             }
