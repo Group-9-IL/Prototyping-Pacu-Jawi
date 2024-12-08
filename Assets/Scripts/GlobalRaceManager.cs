@@ -39,15 +39,15 @@ public class GlobalRaceManager : MonoBehaviour
     void Update()
     {
 
-        if (!TimerManager.Instance.getIsGameStarted())
-        {
-            Time.timeScale = 0;
-            Debug.Log("belom");
-            return;
-        } else
-        {
-            Time.timeScale = 1;
-        }
+        // if (!TimerManager.Instance.getIsGameStarted())
+        // {
+        //     Time.timeScale = 0;
+        //     Debug.Log("belom");
+        //     return;
+        // } else
+        // {
+        //     Time.timeScale = 1;
+        // }
 
 
         foreach (PlayerRaceManager player in listPlayerManager)
