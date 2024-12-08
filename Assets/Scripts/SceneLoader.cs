@@ -6,6 +6,9 @@ public class SceneLoader : MonoBehaviour
 {
     // Nama scene untuk loading screen
     public string loadingSceneName = "LoadingScreen";
+    void Start(){
+        DontDestroyOnLoad(gameObject);
+    }
     // Fungsi umum untuk memuat scene dengan loading screen
     public void LoadSceneWithLoading(string sceneToLoad)
     {

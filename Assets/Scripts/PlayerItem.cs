@@ -8,12 +8,15 @@ public class PlayerItem : MonoBehaviour
     private GachaItem currentItem;
     private PlayerMovement player;
     private Animator dropItem;
+    private Animator fade;
     private float delayItem = 0f;
     public Image playerItem;
     private AudioManager audioManager;
 
     private void Start()
     {
+        GameObject itemUI = GameObject.Find("ItemUI");
+        fade = itemUI.GetComponent<Animator>();
         audioManager = FindAnyObjectByType<AudioManager>();
         player = GetComponent<PlayerMovement>();
         GameObject item = GameObject.Find("Items");
@@ -31,6 +34,8 @@ public class PlayerItem : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.V) && ( currentItem != null))
         {
             UseItem();
+            fade.SetBool("getItem",false);
+            Debug.Log("Item digunakan");
         }
 
         if(delayItem > 0)
@@ -68,7 +73,7 @@ public class PlayerItem : MonoBehaviour
             currentItem = gachaBoxInstance.OpenBox();
             playerItem.sprite=currentItem.itemIcon;
             dropItem.SetBool("hasItemAnim", true);
-            
+            fade.SetBool("getItem",true);
         }
     }
 }
