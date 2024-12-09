@@ -70,6 +70,7 @@ public class PlayerItem : MonoBehaviour
             delayItem = 5f;
             GachaBox gachaBoxInstance = other.gameObject.GetComponent<GachaBox>();
             currentItem = gachaBoxInstance.OpenBox();
+            audioManager.PlaySFX(SfxCondition.hit);
             playerItem.sprite=currentItem.itemIcon;
             fade.SetBool("getItem",true);
             dropItem.SetBool("hasItemAnim", true);

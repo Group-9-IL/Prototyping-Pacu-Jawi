@@ -28,9 +28,11 @@ public class GlobalRaceManager : MonoBehaviour
     private GameObject currentPlayerCar;
     private GameObject currentBotCar;
     private TimerManager timerManager;
+    private AudioManager audioManager;
 
     void Awake()
     {   
+        audioManager = FindObjectOfType<AudioManager>();
         playerRaceManager = FindObjectOfType<PlayerRaceManager>();
         timerManager = FindObjectOfType<TimerManager>();
         selectionManager = FindObjectOfType<SelectionManager>();
@@ -41,7 +43,6 @@ public class GlobalRaceManager : MonoBehaviour
 
         currentPlayerCar=Instantiate(playerCarPrefabs[selectedCharacterIndex], startPositon[0], startRotation[0]);
         currentBotCar =Instantiate(botCarPrefab, startPositon[1], startRotation[1]);
-
         foreach (PlayerRaceManager player in FindObjectsOfType<PlayerRaceManager>())
         {
             listPlayerManager.Add(player);
@@ -78,11 +79,15 @@ public class GlobalRaceManager : MonoBehaviour
                 {
                     if (botFinished)
                     {
+                        audioManager.PlaySFX(SfxCondition.failed);
+                        audioManager.PlaySFX(SfxCondition.boo);
                         loseText.SetActive(true);
                         matchFinished = true ;
                     }
                     else
                     {
+                        audioManager.PlaySFX(SfxCondition.victory);
+                        audioManager.PlaySFX(SfxCondition.celebration);
                         winText.SetActive(true);
                         matchFinished = true;
                         int currentLevel = SceneManager.GetActiveScene().buildIndex;
