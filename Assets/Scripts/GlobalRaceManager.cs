@@ -26,15 +26,17 @@ public class GlobalRaceManager : MonoBehaviour
     private int currentLevel;
     private GameObject currentPlayerCar;
     private GameObject currentBotCar;
+    private TimerManager timerManager;
 
     void Awake()
     {   
         playerRaceManager = FindObjectOfType<PlayerRaceManager>();
+        timerManager = FindObjectOfType<TimerManager>();
         selectionManager = FindObjectOfType<SelectionManager>();
         Debug.Log(playerRaceManager);
         int currentLevel = SceneManager.GetActiveScene().buildIndex;
         PlayerPrefs.SetInt("CurrentLevel", currentLevel);
-        PlayerPrefs.Save(); // Pastikan tersimpan
+        PlayerPrefs.Save(); 
         int selectedCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter",0);
 
         currentPlayerCar=Instantiate(playerCarPrefabs[selectedCharacterIndex], startPositon[0], startRotation[0]);
@@ -51,7 +53,7 @@ public class GlobalRaceManager : MonoBehaviour
     void Update()
     {
 
-        if (!TimerManager.Instance.getIsGameStarted()||PauseMenu.gameIsPaused)
+        if (!timerManager.getIsGameStarted()||PauseMenu.gameIsPaused)
         {
             Time.timeScale = 0;
             return;

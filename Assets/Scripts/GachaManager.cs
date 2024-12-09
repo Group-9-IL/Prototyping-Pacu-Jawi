@@ -11,15 +11,17 @@ public class GachaManager : MonoBehaviour
     public GameObject gachaBox;
 
     private int sumSpawned = 0;
+    private TimerManager timerManager;
 
     private void Start()
     {
+        timerManager = FindObjectOfType<TimerManager>();
         SpawnGachaBox();
     }
 
     private void Update()
     {
-        if(TimerManager.Instance !=null && TimerManager.Instance.getCurrentTime() > sumSpawned * 45)
+        if(timerManager !=null && timerManager.getCurrentTime() > sumSpawned * 45)
         {
             SpawnGachaBox();
         }

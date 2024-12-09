@@ -4,22 +4,9 @@ using UnityEngine;
 
 public class TimerManager : MonoBehaviour
 {
-    public static TimerManager Instance { get; private set; }
-
     private float currentGameTime;
     private bool isGameStarted;
     private float currentDelayTime;
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-        // DontDestroyOnLoad(gameObject);
-    }
 
     private void Start()
     {
