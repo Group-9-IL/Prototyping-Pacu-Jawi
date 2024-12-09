@@ -877,8 +877,8 @@ MonoBehaviour:
     m_Bits: 0
   maxSpeed: 10.5
   accelarationRate: 5
-  highSteeringAngle: 12
-  normalSteeringAngle: 12
+  highSteeringAngle: 13
+  normalSteeringAngle: 13
 --- !u!1 &5112916800888290539
 GameObject:
   m_ObjectHideFlags: 0
