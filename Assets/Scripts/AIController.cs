@@ -16,6 +16,11 @@ public class AIController : MonoBehaviour
     public float highSteeringAngle;
     public float normalSteeringAngle;
 
+    private Animator animator; // Animator reference
+    private int isRunningHash;
+    private int isSprintingHash;
+    private int isReversingHash;
+
     private List<Transform> wayPoints;
     private float currentMaxSpeed;
     private int currentWayPoint;
@@ -29,11 +34,21 @@ public class AIController : MonoBehaviour
         GlobalRaceManager globalRaceManager = FindObjectOfType<GlobalRaceManager>();
         wayPoints = globalRaceManager.botWayPoints;
         currentMaxSpeed = maxSpeed;
+
+        // Initialize animator and hashes
+        animator = GetComponentInChildren<Animator>();
+        if (animator != null)
+        {
+            isRunningHash = Animator.StringToHash("isRunning");
+            isSprintingHash = Animator.StringToHash("isSprinting");
+            isReversingHash = Animator.StringToHash("isReversing");
+        }
     }
     void FixedUpdate()
     {
         HandleAcceleration();
         HandleSteering();
+        UpdateAnimations(); // Update animations based on AI state
     }
 
     private void HandleAcceleration()
@@ -136,5 +151,20 @@ public class AIController : MonoBehaviour
         float delay = maxSpeed == 27f ? 0.7f : 0.45f;
         yield return new WaitForSeconds(delay); 
         hasEntered = false;
+    }
+
+    private void UpdateAnimations()
+    {
+        if (animator == null) return;
+
+        // Determine states based on velocity and direction
+        bool isMovingForward = rb.velocity.magnitude > 1f && Vector3.Dot(transform.forward, rb.velocity.normalized) > 0;
+        bool isMovingBackward = rb.velocity.magnitude > 1f && Vector3.Dot(transform.forward, rb.velocity.normalized) < 0;
+        bool isSprinting = isMovingForward && rb.velocity.magnitude > currentMaxSpeed * 0.8f;
+
+        // Update animator parameters
+        animator.SetBool(isRunningHash, isMovingForward && !isSprinting);
+        animator.SetBool(isSprintingHash, isSprinting);
+        animator.SetBool(isReversingHash, isMovingBackward);
     }
 }

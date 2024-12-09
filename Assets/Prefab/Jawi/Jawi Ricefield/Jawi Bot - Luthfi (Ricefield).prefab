@@ -1248,47 +1248,47 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2206230022229587950}
     m_Modifications:
-    - target: {fileID: 6043886305601869302, guid: 4bc57c54c24869d108162f194bc56ca9, type: 3}
+    - target: {fileID: 6043886305601869302, guid: c75f269be686121b1ac062d3287e6a38, type: 3}
       propertyPath: m_Name
-      value: Lutfi - Orange Buffalo fix
+      value: Lutfi - Orange Buffalo fix bot
       objectReference: {fileID: 0}
-    - target: {fileID: 6389449253052157772, guid: 4bc57c54c24869d108162f194bc56ca9, type: 3}
+    - target: {fileID: 6389449253052157772, guid: c75f269be686121b1ac062d3287e6a38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6389449253052157772, guid: 4bc57c54c24869d108162f194bc56ca9, type: 3}
+    - target: {fileID: 6389449253052157772, guid: c75f269be686121b1ac062d3287e6a38, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.67
       objectReference: {fileID: 0}
-    - target: {fileID: 6389449253052157772, guid: 4bc57c54c24869d108162f194bc56ca9, type: 3}
+    - target: {fileID: 6389449253052157772, guid: c75f269be686121b1ac062d3287e6a38, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1.67
       objectReference: {fileID: 0}
-    - target: {fileID: 6389449253052157772, guid: 4bc57c54c24869d108162f194bc56ca9, type: 3}
+    - target: {fileID: 6389449253052157772, guid: c75f269be686121b1ac062d3287e6a38, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6389449253052157772, guid: 4bc57c54c24869d108162f194bc56ca9, type: 3}
+    - target: {fileID: 6389449253052157772, guid: c75f269be686121b1ac062d3287e6a38, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6389449253052157772, guid: 4bc57c54c24869d108162f194bc56ca9, type: 3}
+    - target: {fileID: 6389449253052157772, guid: c75f269be686121b1ac062d3287e6a38, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6389449253052157772, guid: 4bc57c54c24869d108162f194bc56ca9, type: 3}
+    - target: {fileID: 6389449253052157772, guid: c75f269be686121b1ac062d3287e6a38, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6389449253052157772, guid: 4bc57c54c24869d108162f194bc56ca9, type: 3}
+    - target: {fileID: 6389449253052157772, guid: c75f269be686121b1ac062d3287e6a38, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6389449253052157772, guid: 4bc57c54c24869d108162f194bc56ca9, type: 3}
+    - target: {fileID: 6389449253052157772, guid: c75f269be686121b1ac062d3287e6a38, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6389449253052157772, guid: 4bc57c54c24869d108162f194bc56ca9, type: 3}
+    - target: {fileID: 6389449253052157772, guid: c75f269be686121b1ac062d3287e6a38, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
@@ -1296,9 +1296,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4bc57c54c24869d108162f194bc56ca9, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: c75f269be686121b1ac062d3287e6a38, type: 3}
 --- !u!4 &383124062965340859 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6389449253052157772, guid: 4bc57c54c24869d108162f194bc56ca9, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6389449253052157772, guid: c75f269be686121b1ac062d3287e6a38, type: 3}
   m_PrefabInstance: {fileID: 6771939875567113719}
   m_PrefabAsset: {fileID: 0}
