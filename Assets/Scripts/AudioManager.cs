@@ -15,6 +15,7 @@ public class AudioManager : MonoBehaviour
     private Dictionary<SfxCondition,AudioClip> sfxDictionary;
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         sfxDictionary = new Dictionary<SfxCondition,AudioClip>{
             {SfxCondition.birdsChirping, sfxClips[0]},
             {SfxCondition.boo, sfxClips[1]},
@@ -37,13 +38,12 @@ public class AudioManager : MonoBehaviour
             {SfxCondition.waterStream, sfxClips[18]},
         };
 
-        DontDestroyOnLoad(gameObject);
         // Mengatur slider ke nilai saat ini jika sudah ada pengaturan default
         float currentVolume;
         audioMixer.GetFloat("MusicVolume", out currentVolume);
         volumeSlider.value = currentVolume;
         float currentSFXVolume;
-        if (audioMixer.GetFloat("SFXVolume", out currentSFXVolume))
+        if (audioMixer.GetFloat("SfxVolume", out currentSFXVolume))
         {
             sfxSlider.value = currentSFXVolume;
         }

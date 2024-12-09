@@ -4874,6 +4874,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UiCanva
       objectReference: {fileID: 0}
+    - target: {fileID: 3011370762865614826, guid: cd531be2b05867b4fbeb25cee0d33dab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7995246366341923326}
     - target: {fileID: 6115926651968785761, guid: cd531be2b05867b4fbeb25cee0d33dab, type: 3}
       propertyPath: m_Pivot.x
       value: 0

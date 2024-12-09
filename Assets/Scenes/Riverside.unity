@@ -10699,9 +10699,9 @@ MonoBehaviour:
   - {x: 0, y: 0.5, z: 0, w: 0.8660254}
   - {x: 0, y: 0.5, z: 0, w: 0.8660254}
   playerCarPrefabs:
+  - {fileID: 4709803866135330879, guid: e52e13be5af94612e979811c1acd2b65, type: 3}
   - {fileID: 4709803866135330879, guid: 7f2e042ed5df20a15a2efd4a3554b692, type: 3}
   - {fileID: 4709803866135330879, guid: 9cbe2b35ce54b23e99cbfd224103d875, type: 3}
-  - {fileID: 4709803866135330879, guid: e52e13be5af94612e979811c1acd2b65, type: 3}
   botWayPoints:
   - {fileID: 2606505890414066492}
   - {fileID: 239947178}

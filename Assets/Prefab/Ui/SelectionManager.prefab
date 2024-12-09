@@ -49,5 +49,8 @@ MonoBehaviour:
   level3Button: {fileID: 0}
   characterButton2: {fileID: 0}
   characterButton3: {fileID: 0}
-  buffaloButton2: {fileID: 0}
-  buffaloButton3: {fileID: 0}
+  locked2Map: {fileID: 0}
+  locked3Map: {fileID: 0}
+  locked2Char: {fileID: 0}
+  locked3Char: {fileID: 0}
+  sceneLoader: {fileID: 0}

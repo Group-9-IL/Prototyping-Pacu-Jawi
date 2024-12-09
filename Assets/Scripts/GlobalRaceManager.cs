@@ -23,17 +23,19 @@ public class GlobalRaceManager : MonoBehaviour
     private bool botFinished = false;
     private bool matchFinished = false;
     private int currentLevel;
+    private GameObject currentPlayerCar;
+    private GameObject currentBotCar;
 
     void Awake()
     {   
+        selectionManager = FindObjectOfType<SelectionManager>();
         int currentLevel = SceneManager.GetActiveScene().buildIndex;
-        Debug.Log(currentLevel);
         PlayerPrefs.SetInt("CurrentLevel", currentLevel);
         PlayerPrefs.Save(); // Pastikan tersimpan
         int selectedCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter",0);
 
-        Instantiate(playerCarPrefabs[selectedCharacterIndex], startPositon[0], startRotation[0]);
-        Instantiate(botCarPrefab, startPositon[1], startRotation[1]);
+        currentPlayerCar=Instantiate(playerCarPrefabs[selectedCharacterIndex], startPositon[0], startRotation[0]);
+        currentBotCar =Instantiate(botCarPrefab, startPositon[1], startRotation[1]);
 
         foreach (PlayerRaceManager player in FindObjectsOfType<PlayerRaceManager>())
         {
@@ -46,7 +48,7 @@ public class GlobalRaceManager : MonoBehaviour
     void Update()
     {
 
-        if (!TimerManager.Instance.getIsGameStarted())
+        if (!TimerManager.Instance.getIsGameStarted()||PauseMenu.gameIsPaused)
         {
             Time.timeScale = 0;
             return;
@@ -78,10 +80,45 @@ public class GlobalRaceManager : MonoBehaviour
                     {
                         winText.SetActive(true);
                         matchFinished = true;
-                        selectionManager.CompleteLevel(currentLevel);
+                        selectionManager.CompleteLevel(currentLevel+1);
+                        selectionManager.SaveBotCharacterForLevel(currentLevel+1);
+                        Debug.Log("Level " + currentLevel + " Completed: " + PlayerPrefs.GetInt("Level" + currentLevel + "Completed"));
+
                     }
                 }
             }
         }
+    }
+    public void ResetRace()
+    {
+        // Reset UI
+        finishUI.SetActive(false);
+        if (botFinished)
+        {
+        loseText.SetActive(false);
+        }else
+        {   
+        winText.SetActive(false);
+        }
+        if (currentPlayerCar != null)
+        {
+            Destroy(currentPlayerCar);
+        }
+
+        if (currentBotCar != null)
+        {
+            Destroy(currentBotCar);
+        }
+        int selectedCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter",0);
+        // Reset posisi mobil
+        currentPlayerCar =Instantiate(playerCarPrefabs[selectedCharacterIndex], startPositon[0], startRotation[0]);
+        currentBotCar =Instantiate(botCarPrefab, startPositon[1], startRotation[1]);
+        // Set TimeScale ke 1
+        Time.timeScale = 1;
+        // Reset status balapan
+        playerFinished = false;
+        botFinished = false;
+        matchFinished = false;
+
     }
 }

@@ -14,12 +14,18 @@ public class SelectionManager : MonoBehaviour
     // Character Buttons
     public Button characterButton2;
     public Button characterButton3;
+    // Image kunci
+    public GameObject locked2Map;
+    public GameObject locked3Map;
+    public GameObject locked2Char;
+    public GameObject locked3Char;
 
     private int selectedCharacter;
     public SceneLoader sceneLoader;
 
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         // Memeriksa status terbuka atau terkunci dari PlayerPrefs
         CheckLevelProgress();
         CheckCharacterProgress();
@@ -31,21 +37,18 @@ public class SelectionManager : MonoBehaviour
         LoadSelections();
        
     }
-    public void SetupBotForLevels(){
-        SaveBotCharacterForLevel(1, 1); 
-        SaveBotCharacterForLevel(2, 2); 
-        SaveBotCharacterForLevel(3, 0);
-    }
     // Fungsi untuk memeriksa dan mengubah status level
     void CheckLevelProgress()
     {
         if (PlayerPrefs.GetInt("Level1Completed", 0) == 1)
         {
             level2Button.interactable = true; // Unlock level 2
+            locked2Map.SetActive(false);
         }
         if (PlayerPrefs.GetInt("Level2Completed", 0) == 1)
         {
             level3Button.interactable = true; // Unlock level 3
+            locked3Map.SetActive(false);
         }
     }
 
@@ -55,10 +58,12 @@ public class SelectionManager : MonoBehaviour
         if (PlayerPrefs.GetInt("Character1Selected", 0) == 1)
         {
             characterButton2.interactable = true; // Unlock Character 2
+            locked2Char.SetActive(false);
         }
         if (PlayerPrefs.GetInt("Character2Selected", 0) == 1)
         {
             characterButton3.interactable = true; // Unlock Character 3
+            locked3Char.SetActive(false);
         }
     }
 
@@ -109,9 +114,9 @@ public class SelectionManager : MonoBehaviour
         PlayerPrefs.SetInt("Level" + levelNumber + "Completed", 1);
         PlayerPrefs.Save();
     }
-    public void SaveBotCharacterForLevel(int level, int characterNumber)
+    public void SaveBotCharacterForLevel(int level)
     {
-        PlayerPrefs.SetInt("CharacterForLevel_" + level, characterNumber);
+        PlayerPrefs.SetInt("Character" + level + "Selected", 1);
         PlayerPrefs.Save();
     }
 
