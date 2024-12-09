@@ -487,6 +487,9 @@ MonoBehaviour:
   playerCarPrefabs:
   - {fileID: 4709803866135330879, guid: e52e13be5af94612e979811c1acd2b65, type: 3}
   botWayPoints: []
+  finishUI: {fileID: 0}
+  loseText: {fileID: 0}
+  winText: {fileID: 0}
 --- !u!4 &2606505889862430448
 Transform:
   m_ObjectHideFlags: 0
@@ -918,6 +921,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UiCanva
       objectReference: {fileID: 0}
+    - target: {fileID: 4614292834963630720, guid: cd531be2b05867b4fbeb25cee0d33dab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5350388063344697129, guid: cd531be2b05867b4fbeb25cee0d33dab, type: 3}
       propertyPath: m_Name
       value: LapsUi
@@ -1000,6 +1007,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6115926651968785761, guid: cd531be2b05867b4fbeb25cee0d33dab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7734130746066735010, guid: cd531be2b05867b4fbeb25cee0d33dab, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8551003412585559248, guid: cd531be2b05867b4fbeb25cee0d33dab, type: 3}

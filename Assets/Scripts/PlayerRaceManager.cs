@@ -83,4 +83,12 @@ public class PlayerRaceManager : MonoBehaviour
     {
         return raceFinished;
     }
+    // public void resetUI(){
+    //     Debug.Log("Berhasil");
+    //     firstNumber.SetActive(true);
+    //     thirdNumber.SetActive(true);
+    //     raceFinished =false;
+    //     // currentLap = 1;
+    //     // currentCheckPoint = 0;
+    // }
 }
