@@ -29,8 +29,6 @@ public class GlobalRaceManager : MonoBehaviour
 
     void Awake()
     {
-
-
         timerManager = FindObjectOfType<TimerManager>();
         selectionManager = FindObjectOfType<SelectionManager>();
         int currentLevel = SceneManager.GetActiveScene().buildIndex;
@@ -52,7 +50,7 @@ public class GlobalRaceManager : MonoBehaviour
     void Update()
     {
 
-        if (timerManager.getIsGameStarted()||PauseMenu.gameIsPaused)
+        if (!timerManager.getIsGameStarted()||PauseMenu.gameIsPaused)
         {
             Time.timeScale = 0;
             return;
