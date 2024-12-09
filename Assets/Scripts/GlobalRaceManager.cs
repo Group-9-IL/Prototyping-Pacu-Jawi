@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.TextCore.Text;
@@ -34,9 +35,8 @@ public class GlobalRaceManager : MonoBehaviour
         timerManager = FindObjectOfType<TimerManager>();
         selectionManager = FindObjectOfType<SelectionManager>();
         Debug.Log(playerRaceManager);
-        int currentLevel = SceneManager.GetActiveScene().buildIndex;
-        PlayerPrefs.SetInt("CurrentLevel", currentLevel);
-        PlayerPrefs.Save(); 
+        
+        Debug.Log("sekarang di level" +currentLevel);
         int selectedCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter",0);
 
         currentPlayerCar=Instantiate(playerCarPrefabs[selectedCharacterIndex], startPositon[0], startRotation[0]);
@@ -85,8 +85,12 @@ public class GlobalRaceManager : MonoBehaviour
                     {
                         winText.SetActive(true);
                         matchFinished = true;
-                        selectionManager.CompleteLevel(currentLevel+1);
-                        selectionManager.SaveBotCharacterForLevel(currentLevel+1);
+                        int currentLevel = SceneManager.GetActiveScene().buildIndex;
+                        PlayerPrefs.SetInt("CurrentLevel", currentLevel);
+                        PlayerPrefs.Save();
+                        Debug.Log("LevelSekarang"+currentLevel);
+                        selectionManager.CompleteLevel(currentLevel);
+                        selectionManager.SaveBotCharacterForLevel(currentLevel);
                         Debug.Log("Level " + currentLevel + " Completed: " + PlayerPrefs.GetInt("Level" + currentLevel + "Completed"));
 
                     }

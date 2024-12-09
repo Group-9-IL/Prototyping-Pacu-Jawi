@@ -715,7 +715,7 @@ GameObject:
   - component: {fileID: 5843800707458406872}
   - component: {fileID: 4180175147027764896}
   - component: {fileID: 742348752836456457}
-  - component: {fileID: 3011370762865614826}
+  - component: {fileID: 807093397553586812}
   m_Layer: 5
   m_Name: Restart
   m_TagString: Untagged
@@ -780,7 +780,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3011370762865614826
+--- !u!114 &807093397553586812
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1609,7 +1609,7 @@ GameObject:
   - component: {fileID: 1933983874807638677}
   - component: {fileID: 1690301441637995385}
   - component: {fileID: 968948189477112967}
-  - component: {fileID: 3505775279860237350}
+  - component: {fileID: 2774794467460795673}
   m_Layer: 5
   m_Name: NextMap
   m_TagString: Untagged
@@ -1674,7 +1674,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3505775279860237350
+--- !u!114 &2774794467460795673
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
