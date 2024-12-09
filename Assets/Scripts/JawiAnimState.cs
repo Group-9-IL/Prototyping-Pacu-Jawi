@@ -21,8 +21,8 @@ public class CharacterAnimation : MonoBehaviour
         bool isReversing = animator.GetBool(isReversingHash);
         bool isSprinting = animator.GetBool(isSprintingHash);
 
-        bool forwardPressed = Input.GetKey("w");
-        bool reversePressed = Input.GetKey("s");
+        bool forwardPressed = Input.GetKey("w")||Input.GetKey(KeyCode.UpArrow);
+        bool reversePressed = Input.GetKey("s")||Input.GetKey(KeyCode.DownArrow);
         bool sprintPressed = Input.GetKey("left shift");
 
         if (!isRunning && forwardPressed) // Example: press W to run

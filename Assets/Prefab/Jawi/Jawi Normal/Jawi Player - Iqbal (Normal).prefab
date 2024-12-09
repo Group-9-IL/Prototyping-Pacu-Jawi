@@ -858,10 +858,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2206230022229587950}
   - component: {fileID: 5461770601948993179}
+  - component: {fileID: 5133453598121431347}
   - component: {fileID: -6957459179369860410}
   - component: {fileID: 8841366726140757669}
   - component: {fileID: 495755246700006022}
   - component: {fileID: 8625332718749524004}
+  - component: {fileID: 6275499363881574091}
   m_Layer: 6
   m_Name: Jawi Player - Iqbal (Normal)
   m_TagString: Player
@@ -916,6 +918,18 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5133453598121431347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4709803866135330879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45aa6632105014c058b4b09d4404f7d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-6957459179369860410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -928,10 +942,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d10a030830b26bf4d8263ab96dc45a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentCheckPoint: 0
-  currentLap: 1
-  firstNumber: {fileID: 0}
-  thirdNumber: {fileID: 0}
 --- !u!114 &8841366726140757669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -988,6 +998,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerItem: {fileID: 0}
+--- !u!95 &6275499363881574091
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4709803866135330879}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 1d6512a1063558089880384d29c4af2d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 514b54a2a732f66adbe2bca749a88570, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5112916800888290539
 GameObject:
   m_ObjectHideFlags: 0
