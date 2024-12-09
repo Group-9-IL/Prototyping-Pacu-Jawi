@@ -771,7 +771,7 @@ GameObject:
   - component: {fileID: -620684237591599972}
   m_Layer: 6
   m_Name: Jawi Bot - Fikri (Normal)
-  m_TagString: Player
+  m_TagString: Bot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -834,6 +834,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d10a030830b26bf4d8263ab96dc45a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentCheckPoint: 0
+  currentLap: 1
+  firstNumber: {fileID: 0}
+  thirdNumber: {fileID: 0}
 --- !u!65 &495755246700006022
 BoxCollider:
   m_ObjectHideFlags: 0
