@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class AIController : MonoBehaviour
@@ -16,6 +17,11 @@ public class AIController : MonoBehaviour
     public float highSteeringAngle;
     public float normalSteeringAngle;
 
+    private Animator animator;
+    private int isRunningHash;
+    private int isSprintingHash;
+    private int isReversingHash;
+
     private List<Transform> wayPoints;
     private float currentMaxSpeed;
     private int currentWayPoint;
@@ -23,17 +29,27 @@ public class AIController : MonoBehaviour
     private Vector3 brakeForceVector;
     private float wayPointTimer;
 
+
     void Start()
     {
         currentWayPoint = 0;
         GlobalRaceManager globalRaceManager = FindObjectOfType<GlobalRaceManager>();
         wayPoints = globalRaceManager.botWayPoints;
         currentMaxSpeed = maxSpeed;
+
+        animator = GetComponent<Animator>();
+        if (animator != null)
+        {
+            isRunningHash = Animator.StringToHash("isRunning");
+            isSprintingHash = Animator.StringToHash("isSprinting");
+            isReversingHash = Animator.StringToHash("isReversing");
+        }
     }
     void FixedUpdate()
     {
         HandleAcceleration();
         HandleSteering();
+        UpdateAnimations();
     }
 
     private void HandleAcceleration()
@@ -136,5 +152,18 @@ public class AIController : MonoBehaviour
         float delay = maxSpeed == 27f ? 0.7f : 0.45f;
         yield return new WaitForSeconds(delay); 
         hasEntered = false;
+    }
+
+    private void UpdateAnimations()
+    {
+        if (animator == null) return;
+
+        bool isMovingForward = rb.velocity.magnitude > 1f && Vector3.Dot(transform.forward, rb.velocity.normalized) > 0;
+        bool isMovingBackward = rb.velocity.magnitude > 1f && Vector3.Dot(transform.forward, rb.velocity.normalized) < 0;
+        bool isSprinting = isMovingForward && rb.velocity.magnitude > currentMaxSpeed * 0.8f;
+
+        animator.SetBool(isRunningHash, isMovingForward && !isSprinting);
+        animator.SetBool(isSprintingHash, isSprinting);
+        animator.SetBool(isReversingHash, isMovingBackward);
     }
 }

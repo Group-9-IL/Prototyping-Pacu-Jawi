@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CharacterAnimation : MonoBehaviour
+public class JawiBotAnimState : MonoBehaviour
 {
     Animator animator;
     int isRunningHash;

@@ -8498,9 +8498,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6487372287885984530}
   - component: {fileID: 2066325033068716350}
-  - component: {fileID: -5601793241353349259}
+  - component: {fileID: 8950813214139676427}
   m_Layer: 0
-  m_Name: Fikri - Black Buffalo fix
+  m_Name: Fikri - Black Buffalo fix Bot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8552,7 +8552,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-5601793241353349259
+--- !u!114 &8950813214139676427
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8561,7 +8561,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5858081498839128488}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45aa6632105014c058b4b09d4404f7d3, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a926f9b4ec2bbe538964744cf0b49a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5879414918941349949
