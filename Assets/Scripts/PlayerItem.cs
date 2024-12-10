@@ -23,6 +23,7 @@ public class PlayerItem : MonoBehaviour
         GameObject item = GameObject.Find("Items");
         dropItem = item.GetComponent<Animator>();
         GameObject playerItemObject = GameObject.Find("PlayerItemUI");
+        screenEffects = FindObjectOfType<ScreenEffects>();
         if (playerItem == null)
         {
             playerItem = playerItemObject.GetComponent<Image>();

@@ -2018,6 +2018,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3358163958394602290}
+  - component: {fileID: 4587663450278475354}
   m_Layer: 5
   m_Name: EffectsUI
   m_TagString: Untagged
@@ -2047,6 +2048,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.5, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4587663450278475354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7414956725407913257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba4948eddd1089826b9b856df2333168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedBoostFX: {fileID: 1425323734747321687}
+  cleanRunFX: {fileID: 7562592378855815306}
+  ramFX: {fileID: 8392185230403543114}
 --- !u!1 &7562592378855815306
 GameObject:
   m_ObjectHideFlags: 0

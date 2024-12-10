@@ -29,7 +29,7 @@ public class ScreenEffects : MonoBehaviour
             case EffectType.CleanRun:
                 StartCoroutine(ActivateEffectCoroutine(cleanRunFX, duration));
                 break;
-                
+
             case EffectType.Ram:
                 StartCoroutine(ActivateEffectCoroutine(ramFX, duration));
                 break;
@@ -40,6 +40,7 @@ public class ScreenEffects : MonoBehaviour
     {
         if (effect)
         {
+            Debug.Log("effect called");
             effect.SetActive(true);
             yield return new WaitForSeconds(duration);
             effect.SetActive(false);
