@@ -234,7 +234,7 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_MaskInteraction: 0
-  m_Autodestruct: 1
+  m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
 --- !u!1 &1756289100455277988
@@ -11246,7 +11246,7 @@ MonoBehaviour:
   mudParticle2: {fileID: 1982300994615546158}
   boostTrail: {fileID: 1135723752737372528}
   mudOccurAfterVelocity: 1
-  boostTrailAfterVelocity: 15
+  boostTrailAfterVelocity: 12
   mudFormationPeriod: 0.03
   rb: {fileID: 5461770601948993179}
   River:

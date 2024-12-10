@@ -12,6 +12,7 @@ public class PlayerItem : MonoBehaviour
     private float delayItem = 0f;
     public Image playerItem;
     private AudioManager audioManager;
+    private ScreenEffects screenEffects;
 
     private void Start()
     {
@@ -49,14 +50,17 @@ public class PlayerItem : MonoBehaviour
         {
             player.ItemBoost();
             audioManager.PlaySFX(SfxCondition.speedBoost);
+            screenEffects.ActivateEffect(ScreenEffects.EffectType.SpeedBoost, 3f);
         }else if(currentItem.itemName == "Clean Run")
         {
             player.ItemCleanRun();
             audioManager.PlaySFX(SfxCondition.cleanRun);
+            screenEffects.ActivateEffect(ScreenEffects.EffectType.CleanRun, 3f);
         }else if(currentItem.itemName == "Ram")
         {
             audioManager.PlaySFX(SfxCondition.ram);
             player.ItemRam();
+            screenEffects.ActivateEffect(ScreenEffects.EffectType.Ram, 1f);
         }
 
         currentItem = null;
